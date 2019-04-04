@@ -1,0 +1,369 @@
+﻿@model Auth.Models.ControlMatriculas
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ControlMatriculas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.linea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.linea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_llegada_improntas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_llegada_improntas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_radicado_improntas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_radicado_improntas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_llegada_factura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_llegada_factura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_radicado_factura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_radicado_factura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_llegada_manifiesto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_llegada_manifiesto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_radicado_manifiesto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_radicado_manifiesto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_llegada_pantallazo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_llegada_pantallazo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_radicado_pantallazo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_radicado_pantallazo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_llegada_declaracion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_llegada_declaracion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_radicado_declaracion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_radicado_declaracion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_llegada_fac_carroceria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_llegada_fac_carroceria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_radicado_fac_carroceria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_radicado_fac_carroceria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_llegada_homol_chasis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_llegada_homol_chasis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_radicado_homol_chasis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_radicado_homol_chasis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_llegada_homol_carr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_llegada_homol_carr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_radicado_homol_carr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_radicado_homol_carr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_llegada_contrato_mandato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_llegada_contrato_mandato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_radicado_contrato_mandato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_radicado_contrato_mandato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_llegada_formul_matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_llegada_formul_matricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_radicado_formul_matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_radicado_formul_matricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_llegada_rut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_llegada_rut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_radicado_rut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_radicado_rut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_llegada_cedula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_llegada_cedula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_radicado_cedula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_radicado_cedula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_llegada_resolucion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_llegada_resolucion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_radicado_resolucion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_radicado_resolucion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_llegada_acta_posesion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_llegada_acta_posesion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_radicado_acta_posesion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_radicado_acta_posesion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_orden_alistamiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_orden_alistamiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_alistamiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_alistamiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_accesorios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_accesorios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_logos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_logos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_placas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_placas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_entrega_carpetas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_entrega_carpetas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_program_nineras)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_program_nineras)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_reporte_entrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_reporte_entrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_matricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.placa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.placa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.notas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.notas)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

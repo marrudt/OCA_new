@@ -1,0 +1,255 @@
+﻿@model Auth.Models.OrdenCompra
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+@using (Html.BeginForm("Edit", "OrdenCompras", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Editar Orden de Compra</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div style="width:25%; float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.OC)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.OC, new { htmlAttributes = new { @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.OC)
+            </div>
+        </div>
+
+        <div style="width:30%; float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.nit)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.nit, ViewBag.ListaTerceros as SelectList, "Seleccione Cliente")
+                @Html.ValidationMessageFor(model => model.nit)
+            </div>
+        </div>
+
+        <div style="width:20%; float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fecha_emision)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.fecha_emision)
+                @Html.ValidationMessageFor(model => model.fecha_emision)
+            </div>
+        </div>
+
+        <div style="width:25%; float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fecha_vencimiento)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.fecha_vencimiento)
+                @Html.ValidationMessageFor(model => model.fecha_vencimiento)
+            </div>
+
+        </div>
+
+        <div style="width:30%; float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ordenador_gasto)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ordenador_gasto, new { htmlAttributes = new { @style = "text-transform:uppercase" } })
+                @Html.ValidationMessageFor(model => model.ordenador_gasto)
+            </div>
+            <p></p>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.supervisor)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.supervisor, new { htmlAttributes = new { @style = "text-transform:uppercase" } })
+                @Html.ValidationMessageFor(model => model.supervisor)
+            </div>
+            <p></p>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.telefono_1)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.telefono_1)
+                @Html.ValidationMessageFor(model => model.telefono_1)
+            </div>
+            <p></p>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ext_1)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ext_1)
+                @Html.ValidationMessageFor(model => model.ext_1)
+            </div>
+            <p></p>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.telefono_2)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.telefono_2)
+                @Html.ValidationMessageFor(model => model.telefono_2)
+            </div>
+            <p></p>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ext_2)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ext_2)
+                @Html.ValidationMessageFor(model => model.ext_2)
+            </div>
+            <p></p>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.celular)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.celular)
+                @Html.ValidationMessageFor(model => model.celular)
+            </div>
+            <p></p>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.mail_ordenador_gasto)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.mail_ordenador_gasto)
+                @Html.ValidationMessageFor(model => model.mail_ordenador_gasto)
+            </div>
+            <p></p>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.mail_supervisor)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.mail_supervisor)
+                @Html.ValidationMessageFor(model => model.mail_supervisor)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ValorOC)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ValorOC)
+                @Html.ValidationMessageFor(model => model.ValorOC)
+            </div>
+        </div>
+        <hr />
+
+        <div style="width:70%; float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.numero_AZ)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.numero_AZ)
+                @Html.ValidationMessageFor(model => model.numero_AZ)
+            </div>
+            <p></p>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fecha_pago)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.fecha_pago)
+                @Html.ValidationMessageFor(model => model.fecha_pago)
+            </div>
+            <p></p>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fecha_recaudo)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.fecha_recaudo)
+                @Html.ValidationMessageFor(model => model.fecha_recaudo)
+            </div>
+            <p></p>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fecha_llegada_comp_pago)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.fecha_llegada_comp_pago)
+                @Html.ValidationMessageFor(model => model.fecha_llegada_comp_pago)
+            </div>
+            <p></p>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fecha_solicitud_comp_pago)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.fecha_solicitud_comp_pago)
+                @Html.ValidationMessageFor(model => model.fecha_solicitud_comp_pago)
+            </div>
+            <p></p>
+
+            <div class="editor-label">
+                <label>Adjuntos:</label>
+            </div>
+            <div class="editor-field">
+                <input type="file" name="file" multiple="multiple" />
+                <ul class="attachment">
+                    @foreach (var item in Model.ArchivoOCs)
+                    {
+                        <li>
+                            <a class="title" href="/OrdenCompras/Download/?p=@(item.Id + item.Extension)&d=@item.NombreArchivo">@item.NombreArchivo</a>
+                            <a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">X</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.notas)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.notas)
+            @Html.ValidationMessageFor(model => model.notas)
+        </div>
+        <p></p>
+        <input type="submit" value="Guardar" class="btn btn-info" />
+        <p></p>
+    </fieldset>
+
+    <div>
+        <form method="post" action='@Url.Action("Index", "OrdenCompras")' />
+        <input type="submit" class="btn btn-default" value="Ir al Listado" />
+    </div>
+}
+
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $('.deleteItem').click(function (e) {
+            e.preventDefault();
+            var $ctrl = $(this);
+            if (confirm('Borrar archivo adjunto?')) {
+                $.ajax({
+                    url: '@Url.Action("DeleteFile")',
+                    type: 'POST',
+                    data: { id: $(this).data('id') }
+                }).done(function (data) {
+                    if (data.Result == "OK") {
+                        $ctrl.closest('li').remove();
+                    }
+                    else if (data.Result.Message) {
+                        alert(data.Result.Message);
+                    }
+                }).fail(function () {
+                    alert("Ha ocurrido un error");
+                })
+
+            }
+        });        
+</script>
+}

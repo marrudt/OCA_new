@@ -1,0 +1,179 @@
+﻿@model Auth.Models.Evento
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Evento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ciudad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ciudad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comprador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comprador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaSolicitud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaSolicitud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Segmento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Segmento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cilindraje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cilindraje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adecuacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adecuacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IntervaloPrecio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IntervaloPrecio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Transmision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Transmision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Unidades)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unidades)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MttoPreventivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MttoPreventivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReqMatricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReqMatricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImpuestoRodamiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImpuestoRodamiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Soat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vigencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vigencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GravamenesAdicionales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GravamenesAdicionales)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notas)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

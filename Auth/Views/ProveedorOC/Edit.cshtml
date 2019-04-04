@@ -1,0 +1,150 @@
+﻿@model Auth.Models.ProveedorOC
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+@using (Html.BeginForm("Edit", "ProveedorOC", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Editar Proveedor Orden de Compra</legend>
+        <div style="width:30%; float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.OC)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.OC, new { htmlAttributes = new { @readonly = "readonly" } })
+                    @Html.ValidationMessageFor(model => model.OC)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.NitProveedor)
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.NitProveedor, ViewBag.ListaProveedores as SelectList, "Seleccione Proveedor")
+                    @Html.ValidationMessageFor(model => model.NitProveedor)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.IdReferencia)
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.IdReferencia, ViewBag.ListaReferencias as SelectList, "Seleccione Concepto")
+                    @Html.ValidationMessageFor(model => model.IdReferencia)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fechaOCAM)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fechaOCAM)
+                    @Html.ValidationMessageFor(model => model.fechaOCAM)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.OCAM)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.OCAM)
+                    @Html.ValidationMessageFor(model => model.OCAM)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ValorOCAM)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.ValorOCAM)
+                    @Html.ValidationMessageFor(model => model.ValorOCAM)
+                </div>
+            </div>
+        </div>
+
+        <div style="width:70%; float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.FactProveedor)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.FactProveedor)
+                    @Html.ValidationMessageFor(model => model.FactProveedor)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ValorFactProv)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.ValorFactProv)
+                    @Html.ValidationMessageFor(model => model.ValorFactProv)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fechaFactProv)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fechaFactProv)
+                    @Html.ValidationMessageFor(model => model.fechaFactProv)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                <label>Adjuntos:</label>
+            </div>
+            <div class="editor-field">
+                <input type="file" name="file" multiple="multiple" />
+                <ul class="attachment">
+                    @foreach (var item in Model.ArchivoProveedorOCs)
+                    {
+                        <li>
+                            <a class="title" href="/ProveedorOC/Download/?p=@(item.Id + item.Extension)&d=@item.NombreArchivo">@item.NombreArchivo</a>
+                            <a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">X</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.notas)
+            </div>
+            <div class="editor-field" style="width: 200%; height: 75%;">
+                @Html.EditorFor(model => model.notas)
+                @Html.ValidationMessageFor(model => model.notas)
+            </div>
+        </div>
+
+    </fieldset>
+
+    <div>
+        <input type="submit" value="Guardar" class="btn btn-info" />
+        <form method="post" action='@Url.Action("Index", "OrdenCompras")' />
+        <input type="submit" class="btn btn-default" value="Ir al Listado" />
+    </div>
+}
+
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $('.deleteItem').click(function (e) {
+            e.preventDefault();
+            var $ctrl = $(this);
+            if (confirm('Borrar archivo adjunto?')) {
+                $.ajax({
+                    url: '@Url.Action("DeleteFile")',
+                    type: 'POST',
+                    data: { id: $(this).data('id') }
+                }).done(function (data) {
+                    if (data.Result == "OK") {
+                        $ctrl.closest('li').remove();
+                    }
+                    else if (data.Result.Message) {
+                        alert(data.Result.Message);
+                    }
+                }).fail(function () {
+                    alert("Ha ocurrido un error");
+                })
+
+            }
+        });
+    </script>
+}
+

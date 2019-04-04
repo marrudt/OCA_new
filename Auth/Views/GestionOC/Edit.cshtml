@@ -1,0 +1,134 @@
+﻿@model Auth.Models.GestionOC
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+        <legend>Editar Gestión Orden de Compra</legend>
+
+        <div style="width:30%; float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.OC)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.OC, new { htmlAttributes = new { @readonly = "readonly" } })
+                    @Html.ValidationMessageFor(model => model.OC)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fecha_consulta_comparendos)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_consulta_comparendos)
+                    @Html.ValidationMessageFor(model => model.fecha_consulta_comparendos)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fecha_carta_supervisor)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_carta_supervisor)
+                    @Html.ValidationMessageFor(model => model.fecha_carta_supervisor)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fecha_estampilla)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_estampilla)
+                    @Html.ValidationMessageFor(model => model.fecha_estampilla)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fecha_cierre_factura)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_cierre_factura)
+                    @Html.ValidationMessageFor(model => model.fecha_cierre_factura)
+                </div>
+            </div>
+        </div>
+
+        <div style="width:70%; float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.envio_carta_comparendos)
+                <div class="editor-field">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.envio_carta_comparendos)
+                        @Html.ValidationMessageFor(model => model.envio_carta_comparendos)
+                    </div>
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.se_legalizo)
+                <div class="editor-field">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.se_legalizo)
+                        @Html.ValidationMessageFor(model => model.se_legalizo)
+                    </div>
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.estampilla_pagar)
+                <div class="editor-field">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.estampilla_pagar)
+                        @Html.ValidationMessageFor(model => model.estampilla_pagar)
+                    </div>
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.estampilla_dcto)
+                <div class="editor-field">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.estampilla_dcto)
+                        @Html.ValidationMessageFor(model => model.estampilla_dcto)
+                    </div>
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.valor_estampilla)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.valor_estampilla)
+                    @Html.ValidationMessageFor(model => model.valor_estampilla)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.entidad_matricula)
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.entidad_matricula, ViewBag.ListaEntidades as SelectList, "Seleccione Entidad")
+                    @Html.ValidationMessageFor(model => model.entidad_matricula)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.notas)
+            </div>
+            <div class="editor-field" style="width: 200%; height: 75%;">
+                @Html.EditorFor(model => model.notas)
+                @Html.ValidationMessageFor(model => model.notas)
+            </div>
+
+        </div>
+    </fieldset>
+
+    <div class="editor-field">
+        <input type="submit" value="Guardar" class="btn btn-info" />
+        <input type="submit" class="btn btn-default" value="Ir al Listado" />
+    </div>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

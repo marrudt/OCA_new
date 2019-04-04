@@ -1,0 +1,140 @@
+﻿@model IEnumerable<Auth.Models.GestionOC>
+
+@{
+    ViewBag.Title = "Gestión OC";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Gestión Orden de Compra</h3>
+
+<div>
+    @Html.ActionLink("Crear Nuevo", "Create", "GestionOC", new { @class = "btn btn-info" })
+</div>
+<hr />
+<br />
+
+@using (Html.BeginForm())
+{
+    <p>
+        Número OC: @Html.TextBox("Busqueda")
+        <input type="submit" value="Buscar" class="btn-default" />
+    </p>
+}
+<br />
+<table style="width:100%">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_consulta_comparendos)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.envio_carta_comparendos)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_carta_supervisor)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.se_legalizo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estampilla_pagar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estampilla_dcto)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_estampilla)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.valor_estampilla)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_cierre_factura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.entidad_matricula)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.notas)
+        </th>*@
+        <th>Acciones</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_consulta_comparendos)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.envio_carta_comparendos)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_carta_supervisor)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.se_legalizo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.estampilla_pagar)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.estampilla_dcto)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_estampilla)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.valor_estampilla)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_cierre_factura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.entidad_matricula)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.notas)
+            </td>*@
+
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @*@Html.ActionLink("Detalles", "Details", new { id = item.Id }) |*@
+                <a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">Eliminar</a>
+            </td>
+        </tr>
+
+    }
+
+</table>
+
+@section Scripts {
+
+    <script>
+        $('.deleteItem').click(function (e) {
+            e.preventDefault();
+            var $ctrl = $(this);
+            if (confirm('Desea eliminar la Gestión de Orden de Compra?')) {
+                $.ajax({
+                    url: '@Url.Action("Delete")',
+                    type: 'POST',
+                    data: { id: $(this).data('id') }
+                }).done(function (data) {
+                    if (data.Result == "OK") {
+                        $ctrl.closest('tr').remove();
+                    }
+                    else if (data.Result.Message) {
+                        alert(data.Result.Message);
+                    }
+                }).fail(function () {
+                    alert("Sucedió un error, intente nuevamente.");
+                })
+            }
+        });
+    </script>
+}

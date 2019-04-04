@@ -1,0 +1,116 @@
+﻿@model Auth.Models.EjecucionOC
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+@using (Html.BeginForm("Edit", "EjecucionOC", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Editar Ejecución Orden de Compra</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OC)
+            <div class="editor-field">
+                @Html.EditorFor(model => model.OC, new { htmlAttributes = new { @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.OC)
+            </div>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.fecha_probable_entrega)
+            <div class="editor-field">
+                @Html.EditorFor(model => model.fecha_probable_entrega)
+                @Html.ValidationMessageFor(model => model.fecha_probable_entrega)
+            </div>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.fecha_entrega_final)
+            <div class="editor-field">
+                @Html.EditorFor(model => model.fecha_entrega_final)
+                @Html.ValidationMessageFor(model => model.fecha_entrega_final)
+            </div>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.funcionario_recibe)
+            <div class="editor-field">
+                @Html.EditorFor(model => model.funcionario_recibe, new { htmlAttributes = new { @style = "text-transform:uppercase" } })
+                @Html.ValidationMessageFor(model => model.funcionario_recibe)
+            </div>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.entrega_am)
+            <div class="editor-field">
+                @Html.EditorFor(model => model.entrega_am, new { htmlAttributes = new { @style = "text-transform:uppercase" } })
+                @Html.ValidationMessageFor(model => model.entrega_am)
+            </div>
+        </div>
+
+        <div class="editor-label">
+            <label>Adjuntos:</label>
+        </div>
+        <div class="editor-field">
+            <input type="file" name="file" multiple="multiple" />
+            <ul class="attachment">
+                @foreach (var item in Model.ArchivoEjecucionOCs)
+                {
+                    <li>
+                        <a class="title" href="/EjecucionOC/Download/?p=@(item.Id + item.Extension)&d=@item.NombreArchivo">@item.NombreArchivo</a>
+                        <a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">X</a>
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.notas)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.notas)
+            @Html.ValidationMessageFor(model => model.notas)
+        </div>
+        <p></p>
+        <input type="submit" value="Guardar" class="btn btn-info" />
+        <p></p>
+    </fieldset>
+
+    <div>
+        <form method="post" action='@Url.Action("Index", "OrdenCompras")' />
+        <input type="submit" class="btn btn-default" value="Ir al Listado" />
+    </div>
+}
+
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $('.deleteItem').click(function (e) {
+            e.preventDefault();
+            var $ctrl = $(this);
+            if (confirm('Borrar archivo adjunto?')) {
+                $.ajax({
+                    url: '@Url.Action("DeleteFile")',
+                    type: 'POST',
+                    data: { id: $(this).data('id') }
+                }).done(function (data) {
+                    if (data.Result == "OK") {
+                        $ctrl.closest('li').remove();
+                    }
+                    else if (data.Result.Message) {
+                        alert(data.Result.Message);
+                    }
+                }).fail(function () {
+                    alert("Ha ocurrido un error");
+                })
+
+            }
+        });
+    </script>
+}
+

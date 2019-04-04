@@ -1,0 +1,84 @@
+﻿@model Auth.Models.GestionCartera
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+        <legend>Editar Gestión de Cartera</legend>
+
+        <div style="width:100%; float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.OC)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.OC, new { htmlAttributes = new { @readonly = "readonly" } })
+                    @Html.ValidationMessageFor(model => model.OC)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fecha_gestion)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_gestion)
+                    @Html.ValidationMessageFor(model => model.fecha_gestion)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.contacto_gestion)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.contacto_gestion, new { htmlAttributes = new { @style = "text-transform:uppercase" } })
+                    @Html.ValidationMessageFor(model => model.contacto_gestion)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.telefono_contacto_gestion)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.telefono_contacto_gestion)
+                    @Html.ValidationMessageFor(model => model.telefono_contacto_gestion)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.mail_contacto_gestion)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.mail_contacto_gestion)
+                    @Html.ValidationMessageFor(model => model.mail_contacto_gestion)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.observacion_gestion)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.observacion_gestion)
+                    @Html.ValidationMessageFor(model => model.observacion_gestion)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.responsable_gestion)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.responsable_gestion, new { htmlAttributes = new { @style = "text-transform:uppercase" } })
+                    @Html.ValidationMessageFor(model => model.responsable_gestion)
+                </div>
+            </div>
+
+        </div>
+    </fieldset>
+
+    <div class="editor-field">
+        <input type="submit" value="Guardar" class="btn btn-info" />
+        <input type="submit" class="btn btn-default" value="Ir al Listado" />
+    </div>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

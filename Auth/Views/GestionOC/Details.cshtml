@@ -1,0 +1,115 @@
+﻿@model Auth.Models.GestionOC
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GestionOC</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_consulta_comparendos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_consulta_comparendos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.envio_carta_comparendos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.envio_carta_comparendos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_carta_supervisor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_carta_supervisor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.se_legalizo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.se_legalizo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estampilla_pagar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estampilla_pagar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estampilla_dcto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estampilla_dcto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_estampilla)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_estampilla)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valor_estampilla)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor_estampilla)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_cierre_factura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_cierre_factura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.entidad_matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.entidad_matricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.notas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.notas)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

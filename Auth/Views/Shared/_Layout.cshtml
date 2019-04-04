@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Orden de Compra Automayor</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">        
+        <div class="container">            
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="@Url.Action("Index", "Home")"><img src="~/Images/favicon_64x64.ico" style="width: 50px;" />  </a>
+                @*@Html.ActionLink("OCA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @Html.Partial("_LoginPartial")
+                    <li>@Html.ActionLink("Evento", "Index", "Evento")</li>
+                    <li>@Html.ActionLink("Orden de Compra", "Index", "OrdenCompras")</li>
+                    <li>@Html.ActionLink("Proveedores OC", "Index", "ProveedorOC")</li>
+                    <li>@Html.ActionLink("Control Matriculas", "Index", "ControlMatriculas")</li>
+                    <li>@Html.ActionLink("Gestión OC", "Index", "GestionOC")</li>
+                    <li>@Html.ActionLink("Cartera OC", "Index", "CarteraOC")</li>
+                    <li>@Html.ActionLink("Gestión Cartera", "Index", "GestionCartera")</li>
+                    <li>@Html.ActionLink("Ejecución OC", "Index", "EjecucionOC")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span></span>Parametros<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Línea Vehículo", "Index", "LineaVh")</li>
+                            <li>@Html.ActionLink("Terceros OCA", "Index", "TercerosOCA")</li>
+                            <li>@Html.ActionLink("Proveedores OCA", "Index", "Proveedor")</li>
+                            <li>@Html.ActionLink("Entidad Matricula", "Index", "EntidadMatricula")</li>
+                            <li>@Html.ActionLink("Ciudades", "Index", "CiudadOCA")</li>
+                            <li>@Html.ActionLink("Conceptos Provedores", "Index", "ReferenciasOC")</li>
+                            <li>@Html.ActionLink("Segmentos", "Index", "Segmentos")</li>
+                            <li>@Html.ActionLink("Cilindraje", "Index", "Cilindraje")</li>
+                            <li>@Html.ActionLink("Adecuación", "Index", "Adecuacion")</li>
+                            <li>@Html.ActionLink("Intervalo de Precios", "Index", "IntervaloPrecio")</li>
+                            <li>@Html.ActionLink("Transmisión", "Index", "Transmision")</li>
+                            <li>@Html.ActionLink("Mantenimiento Preventivo", "Index", "MttoPreventivo")</li>
+                            <li>@Html.ActionLink("Vigencia Soat", "Index", "VigenciaSoat")</li>
+                            @* <li><a>eeq</a></li>*@
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-collapse collapse navbar-right">
+            </div>
+        </div>
+    </div>   
+    @*<li>@Html.ActionLink("Linea Vh", "Index", "LineaVh")</li>
+    @*<li>@Html.ActionLink("Acerca de", "About", "Home")</li>*@
+    @*<li>@Html.ActionLink("Contacto", "Contact", "Home")</li>*@
+    @*</ul>
+        </div>
+        </div>
+        </div>*@
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Automayor S.A.</p>
+            <br />
+            <p>Versión 2.0</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

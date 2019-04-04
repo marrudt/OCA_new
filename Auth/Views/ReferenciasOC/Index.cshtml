@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Auth.Models.ReferenciasOC>
+
+@{
+    ViewBag.Title = "Conceptos Proveedores";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Conceptos Proveedores</h3>
+
+<div>
+    @Html.ActionLink("Crear Nuevo", "Create", "ReferenciasOC", new { @class = "btn btn-info" })
+</div>
+<hr />
+<br />
+
+@using (Html.BeginForm())
+{
+    <p>
+        Descripción: @Html.TextBox("Busqueda")
+        <input type="submit" value="Buscar" class="btn-default" />
+    </p>
+}
+
+<br />
+<table style="width:100%">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.activo)
+        </th>
+        <th>Acciones</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.activo)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @*@Html.ActionLink("Detalles", "Details", new { id = item.Id }) |*@
+                <a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">Eliminar</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section Scripts {
+
+    <script>
+        $('.deleteItem').click(function (e) {
+            e.preventDefault();
+            var $ctrl = $(this);
+            if (confirm('Desea eliminar el Concepto de Orden de Compra?')) {
+                $.ajax({
+                    url: '@Url.Action("Delete")',
+                    type: 'POST',
+                    data: { id: $(this).data('id') }
+                }).done(function (data) {
+                    if (data.Result == "OK") {
+                        $ctrl.closest('tr').remove();
+                    }
+                    else if (data.Result.Message) {
+                        alert(data.Result.Message);
+                    }
+                }).fail(function () {
+                    alert("Sucedió un error, intente nuevamente.");
+                })
+            }
+        });
+    </script>
+}

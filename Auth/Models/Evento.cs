@@ -74,6 +74,6 @@ namespace Auth.Models
         public decimal Total { get; set; }
 
         [DataType(DataType.MultilineText)]
-        public string Notas { get; set; }
+        public string Notas { get; set; }       
     }
 }

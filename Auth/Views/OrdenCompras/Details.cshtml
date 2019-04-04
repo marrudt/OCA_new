@@ -1,0 +1,179 @@
+﻿@model Auth.Models.OrdenCompra
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OrdenCompra</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_emision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_emision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_vencimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_vencimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ordenador_gasto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ordenador_gasto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.supervisor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.supervisor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ext_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ext_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ext_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ext_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.celular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.celular)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mail_ordenador_gasto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mail_ordenador_gasto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mail_supervisor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mail_supervisor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorOC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numero_AZ)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numero_AZ)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_pago)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_pago)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_recaudo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_recaudo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_llegada_comp_pago)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_llegada_comp_pago)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_solicitud_comp_pago)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_solicitud_comp_pago)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.notas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.notas)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,154 @@
+﻿@model Auth.Models.CarteraOC
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+@using (Html.BeginForm("Edit", "CarteraOC", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Editar Cartera Orden de Compra</legend>
+
+        <div style="width:40%; float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.OC)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.OC, new { htmlAttributes = new { @readonly = "readonly" } })
+                    @Html.ValidationMessageFor(model => model.OC)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fecha_limite_pago)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_limite_pago)
+                    @Html.ValidationMessageFor(model => model.fecha_limite_pago)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.se_reporta_cce)
+                <div class="editor-field">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.se_reporta_cce)
+                        @Html.ValidationMessageFor(model => model.se_reporta_cce)
+                    </div>
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fecha_reporte_cce)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_reporte_cce)
+                    @Html.ValidationMessageFor(model => model.fecha_reporte_cce)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.reporte_cce_am)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.reporte_cce_am)
+                    @Html.ValidationMessageFor(model => model.reporte_cce_am)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fecha_envio_carta_pago)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_envio_carta_pago)
+                    @Html.ValidationMessageFor(model => model.fecha_envio_carta_pago)
+                </div>
+            </div>
+        </div>
+
+        <div style="width:60%; float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fecha_envio_carta_pago_2)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_envio_carta_pago_2)
+                    @Html.ValidationMessageFor(model => model.fecha_envio_carta_pago_2)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fecha_radicacion_cuenta)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_radicacion_cuenta)
+                    @Html.ValidationMessageFor(model => model.fecha_radicacion_cuenta)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fecha_probable_pago)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_probable_pago)
+                    @Html.ValidationMessageFor(model => model.fecha_probable_pago)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                <label>Adjuntos:</label>
+            </div>
+            <div class="editor-field">
+                <input type="file" name="file" multiple="multiple" />
+                <ul class="attachment">
+                    @foreach (var item in Model.ArchivoCarteraOCs)
+                    {
+                        <li>
+                            <a class="title" href="/CarteraOC/Download/?a=@(item.Id + item.Extension)&b=@item.NombreArchivo">@item.NombreArchivo</a>
+                            <a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">X</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.notas)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.notas)
+                @Html.ValidationMessageFor(model => model.notas)
+            </div>
+        </div>
+        <p></p>
+        <input type="submit" value="Guardar" class="btn btn-info" />
+        <p></p>
+    </fieldset>
+
+    <div>
+        <form method="post" action='@Url.Action("Index", "OrdenCompras")' />
+        <input type="submit" class="btn btn-default" value="Ir al Listado" />
+    </div>
+}
+
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $('.deleteItem').click(function (e) {
+            e.preventDefault();
+            var $ctrl = $(this);
+            if (confirm('Borrar archivo adjunto?')) {
+                $.ajax({
+                    url: '@Url.Action("DeleteFile")',
+                    type: 'POST',
+                    data: { id: $(this).data('id') }
+                }).done(function (data) {
+                    if (data.Result == "OK") {
+                        $ctrl.closest('li').remove();
+                    }
+                    else if (data.Result.Message) {
+                        alert(data.Result.Message);
+                    }
+                }).fail(function () {
+                    alert("Ha ocurrido un error");
+                })
+
+            }
+        });
+    </script>
+}
+

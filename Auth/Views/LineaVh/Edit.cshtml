@@ -1,0 +1,74 @@
+﻿@model Auth.Models.LineaVh
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Editar Línea de Vehículo</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div style="width:25%; float:left;">
+
+            @Html.ValidationSummary(true)
+            <div class="editor-label">
+                @Html.LabelFor(model => model.clase)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.clase)
+                @Html.ValidationMessageFor(model => model.clase)
+            </div>
+        </div>
+        <div style="width:75%; float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.descripcion)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.descripcion)
+                @Html.ValidationMessageFor(model => model.descripcion)
+            </div>
+        </div>
+        <p></p>
+        <input type="submit" value="Guardar" class="btn btn-info" />
+        <p></p>
+    </fieldset>
+
+    <div>
+        <form method="post" action='@Url.Action("Index", "OrdenCompras")' />
+        <input type="submit" class="btn btn-default" value="Ir al Listado" />
+    </div>
+}
+
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $('.deleteItem').click(function (e) {
+            e.preventDefault();
+            var $ctrl = $(this);
+            if (confirm('Do you really want to delete this file?')) {
+                $.ajax({
+                    url: '@Url.Action("DeleteFile")',
+                    type: 'POST',
+                    data: { id: $(this).data('id') }
+                }).done(function (data) {
+                    if (data.Result == "OK") {
+                        $ctrl.closest('li').remove();
+                    }
+                    else if (data.Result.Message) {
+                        alert(data.Result.Message);
+                    }
+                }).fail(function () {
+                    alert("There is something wrong. Please try again.");
+                })
+
+            }
+        });
+    </script>
+}

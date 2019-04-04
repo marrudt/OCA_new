@@ -1,0 +1,67 @@
+﻿@model Auth.Models.EjecucionOC
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EjecucionOC</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_probable_entrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_probable_entrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_entrega_final)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_entrega_final)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.funcionario_recibe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.funcionario_recibe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.entrega_am)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.entrega_am)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.notas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.notas)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

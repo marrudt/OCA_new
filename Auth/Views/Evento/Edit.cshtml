@@ -1,0 +1,301 @@
+﻿@model Auth.Models.Evento
+
+@{
+    ViewBag.Title = "Editar Evento";
+}
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: "/Evento/GetSegmento",
+            datatype: "Json",
+            success: function (data) {
+                $.each(data, function (edit, value) {     
+                    $('#ddlSegmento').append('<option value="' + value.Id + '">' + value.DesSegmento + '</option>');
+                });
+            }
+        });
+    });
+    $(document).ready(function () {
+        $('#ddlSegmento').change(function () {
+            $('#ddlCilindraje').empty();
+            $.ajax({
+                type: "POST",
+                url: "/Evento/GetCilindraje",
+                datatype: "Json",
+                data: { Id: $('#ddlSegmento').val() },
+                success: function (data) {
+                    $('#ddlCilindraje').append('<option value>Seleccione</option>');
+                    $.each(data, function (edit, value) {
+                        $('#ddlCilindraje').append('<option value="' + value.Id + '">' + value.DesCilindraje + '</option>');
+                    });
+                }
+            });
+        });
+    });
+    $(document).ready(function () {
+        $('#ddlCilindraje').change(function () {
+            $('#ddlAdecuacion').empty();
+            $.ajax({
+                type: "POST",
+                url: "/Evento/GetAdecuacion",
+                datatype: "Json",
+                data: { Id: $('#ddlCilindraje').val() },
+                success: function (data) {
+                    $('#ddlAdecuacion').append('<option value>Seleccione Adecuación</option>');
+                    $.each(data, function (edit, value) {
+                        $('#ddlAdecuacion').append('<option value="' + value.Id + '">' + value.DesAdecuacion + '</option>');
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+@using (Html.BeginForm("Edit", "Evento", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Editar Evento</legend>
+
+        <div style="width:30%; float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Numero)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Numero)
+                    @Html.ValidationMessageFor(model => model.Numero)
+                </div>
+            </div>
+        </div>
+
+        <div style="width:40%; float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Nit)
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.Nit, ViewBag.ListaTerceros as SelectList, "Seleccione Cliente")
+                    @Html.ValidationMessageFor(model => model.Nit)
+                </div>
+            </div>
+        </div>
+
+        <div style="width:30%; float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.FechaSolicitud)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.FechaSolicitud)
+                    @Html.ValidationMessageFor(model => model.FechaSolicitud)
+                </div>
+            </div>
+        </div>
+
+        <div style="width:100%; float:left;">
+
+            <div style="width:25%; float:left;">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Ciudad)
+                    <div class="editor-field">
+                        @Html.DropDownListFor(model => model.Ciudad, ViewBag.ListaCiudades as SelectList, "Seleccione Ciudad")
+                        @Html.ValidationMessageFor(model => model.Ciudad)
+                    </div>
+                </div>
+            </div>
+
+            <div style="width:25%; float:left;">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Comprador)
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Comprador)
+                        @Html.ValidationMessageFor(model => model.Comprador)
+                    </div>
+                </div>
+            </div>
+
+            <div style="width:25%; float:left;">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Telefono)
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Telefono)
+                        @Html.ValidationMessageFor(model => model.Telefono)
+                    </div>
+                </div>
+            </div>
+
+            <div style="width:25%; float:left;">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Email)
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Email)
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="width:100%; float:left;">
+            <hr />
+        </div>
+        <div style="width:45%; float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.IdSegmento)
+                <div class="editor-field">
+                    @Html.DropDownList("ddlSegmento", new SelectList(string.Empty), "Seleccione Segmento", null)
+                    @Html.ValidationMessageFor(model => model.IdSegmento)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.IdCilindraje)
+                <div class="editor-field">
+                    @Html.DropDownList("ddlCilindraje", new SelectList(string.Empty, "Value", "Text"), "Seleccione Opción", null)
+                    @Html.ValidationMessageFor(model => model.IdCilindraje)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.IdAdecuacion)
+                <div class="editor-field">
+                    @Html.DropDownList("ddlAdecuacion", new SelectList(string.Empty, "Value", "Text"), "Seleccione Adecuación", null)
+                    @Html.ValidationMessageFor(model => model.IdAdecuacion)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.IntervaloPrecio)
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.IntervaloPrecio, ViewBag.ListaIntervalos as SelectList, "Seleccione Intervalo")
+                    @Html.ValidationMessageFor(model => model.IntervaloPrecio)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Transmision)
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.Transmision, ViewBag.ListaTransmision as SelectList, "Seleccione Transmisión")
+                    @Html.ValidationMessageFor(model => model.Transmision)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Unidades)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Unidades)
+                    @Html.ValidationMessageFor(model => model.Unidades)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.MttoPreventivo)
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.MttoPreventivo, ViewBag.ListaMttos as SelectList, "Seleccione Mantenimiento")
+                    @Html.ValidationMessageFor(model => model.MttoPreventivo)
+                </div>
+            </div>
+        </div>
+
+        <div style="width:55%; float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ReqMatricula)
+                <div class="editor-field">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.ReqMatricula)
+                        @Html.ValidationMessageFor(model => model.ReqMatricula)
+                    </div>
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ImpuestoRodamiento)
+                <div class="editor-field">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.ImpuestoRodamiento)
+                        @Html.ValidationMessageFor(model => model.ImpuestoRodamiento)
+                    </div>
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.GravamenesAdicionales)
+                <div class="editor-field">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.GravamenesAdicionales)
+                        @Html.ValidationMessageFor(model => model.GravamenesAdicionales)
+                    </div>
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Soat)
+                <div class="editor-field">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Soat)
+                        @Html.ValidationMessageFor(model => model.Soat)
+                    </div>
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Vigencia)
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.Vigencia, ViewBag.ListaVigencias as SelectList, "Seleccione Vigencia")
+                    @Html.ValidationMessageFor(model => model.Vigencia)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Total)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Total)
+                    @Html.ValidationMessageFor(model => model.Total)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Notas)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Notas)
+                    @Html.ValidationMessageFor(model => model.Notas)
+                </div>
+            </div>
+        </div>
+
+        <p></p>
+        <input type="submit" value="Guardar" class="btn btn-info" />
+        <p></p>
+    </fieldset>
+
+    <div>
+        <form method="post" action='@Url.Action("Index", "Evento")' />
+        <input type="submit" class="btn btn-default" value="Ir al Listado" />
+    </div>
+}
+
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $('.deleteItem').click(function (e) {
+            e.preventDefault();
+            var $ctrl = $(this);
+            if (confirm('Borrar archivo adjunto?')) {
+                $.ajax({
+                    url: '@Url.Action("DeleteFile")',
+                    type: 'POST',
+                    data: { id: $(this).data('id') }
+                }).done(function (data) {
+                    if (data.Result == "OK") {
+                        $ctrl.closest('li').remove();
+                    }
+                    else if (data.Result.Message) {
+                        alert(data.Result.Message);
+                    }
+                }).fail(function () {
+                    alert("Ha ocurrido un error");
+                })
+
+            }
+        });
+    </script>
+    }

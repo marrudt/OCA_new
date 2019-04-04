@@ -1,0 +1,137 @@
+﻿@model IEnumerable<Auth.Models.ProveedorOC>
+
+@{
+    ViewBag.Title = "Proveedor OC";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Proveedor Orden de Compra</h3>
+
+<div>
+    @Html.ActionLink("Crear Nuevo", "Create", "ProveedorOC", new { @class = "btn btn-info" })
+</div>
+<hr />
+<br />
+
+@using (Html.BeginForm())
+{
+    <p>
+        Número OC: @Html.TextBox("Busqueda")
+        <input type="submit" value="Buscar" class="btn-default" />
+    </p>
+}
+
+<br />
+<table style="width:100%">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NitProveedor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdReferencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaOCAM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OCAM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorOCAM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FactProveedor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorFactProv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaFactProv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.notas)
+        </th>
+        <th>Acciones</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NitProveedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdReferencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaOCAM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OCAM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorOCAM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FactProveedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorFactProv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaFactProv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.notas)
+            </td>
+            @*<td>
+                    @if (item.ArchivoProveedorOCs.Count() == 0)
+                    {
+                        <span>Sin Adjunto(s)</span>
+                    }
+                    else
+                    {
+                        <span>@item.ArchivoProveedorOCs.Count() Adjunto(s)</span>
+                    }
+                </td>*@
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @*@Html.ActionLink("Detalles", "Details", new { id = item.Id }) |*@
+                <a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">Eliminar</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section Scripts {
+
+    <script>
+        $('.deleteItem').click(function (e) {
+            e.preventDefault();
+            var $ctrl = $(this);
+            if (confirm('Desea eliminar el Proveedor de Orden de Compra?')) {
+                $.ajax({
+                    url: '@Url.Action("Delete")',
+                    type: 'POST',
+                    data: { id: $(this).data('id') }
+                }).done(function (data) {
+                    if (data.Result == "OK") {
+                        $ctrl.closest('tr').remove();
+                    }
+                    else if (data.Result.Message) {
+                        alert(data.Result.Message);
+                    }
+                }).fail(function () {
+                    alert("Sucedió un error, intente nuevamente.");
+                })
+            }
+        });
+    </script>
+}

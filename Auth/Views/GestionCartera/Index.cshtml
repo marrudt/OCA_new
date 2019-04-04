@@ -1,0 +1,108 @@
+﻿@model IEnumerable<Auth.Models.GestionCartera>
+
+@{
+    ViewBag.Title = "Gestión Cartera";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Gestión Cartera</h3>
+
+<div>
+    @Html.ActionLink("Crear Nuevo", "Create", "GestionOC", new { @class = "btn btn-info" })
+</div>
+<hr />
+<br />
+
+@using (Html.BeginForm())
+{
+    <p>
+        Número OC: @Html.TextBox("Busqueda")
+        <input type="submit" value="Buscar" class="btn-default" />
+    </p>
+}
+<br />
+<table style="width:100%">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_gestion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contacto_gestion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono_contacto_gestion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mail_contacto_gestion)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.observacion_gestion)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.responsable_gestion)
+        </th>
+        <th>Acciones</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_gestion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contacto_gestion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono_contacto_gestion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mail_contacto_gestion)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.observacion_gestion)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.responsable_gestion)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @*@Html.ActionLink("Detalles", "Details", new { id=item.Id }) |*@
+                <a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">Eliminar</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section Scripts {
+
+    <script>
+        $('.deleteItem').click(function (e) {
+            e.preventDefault();
+            var $ctrl = $(this);
+            if (confirm('Desea eliminar el registro de Gestión de Cartera?')) {
+                $.ajax({
+                    url: '@Url.Action("Delete")',
+                    type: 'POST',
+                    data: { id: $(this).data('id') }
+                }).done(function (data) {
+                    if (data.Result == "OK") {
+                        $ctrl.closest('tr').remove();
+                    }
+                    else if (data.Result.Message) {
+                        alert(data.Result.Message);
+                    }
+                }).fail(function () {
+                    alert("Sucedió un error, intente nuevamente.");
+                })
+            }
+        });
+    </script>
+}

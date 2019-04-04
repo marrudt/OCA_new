@@ -1,0 +1,502 @@
+﻿@model Auth.Models.ControlMatriculas
+
+@{
+    /**/
+
+    ViewBag.Title = "Crear Nuevo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div>
+        <fieldset>
+            <legend>Crear Nueva Matricula</legend>
+            <div style="width:15%; float:left;">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.OC)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.OC, ViewBag.ListaOCs as SelectList, "Seleccione OC")
+                    @Html.ValidationMessageFor(model => model.OC)
+                </div>
+            </div>
+
+            <div style="width:40%; float:left;">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.nit)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.nit, ViewBag.ListaTerceros as SelectList, "Seleccione Cliente")
+                    @Html.ValidationMessageFor(model => model.nit)
+                </div>
+            </div>
+
+            <div style="width:20%; float:left;">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.linea)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.linea, ViewBag.ListaLineas as SelectList, "Seleccione Línea")
+                    @Html.ValidationMessageFor(model => model.linea)
+                </div>
+            </div>
+
+            <div style="width:10%; float:left;">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.fecha)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha)
+                    @Html.ValidationMessageFor(model => model.fecha)
+                </div>
+            </div>
+
+            <div style="width:100%; float:left;">
+                <hr />
+            </div>
+
+            <div style="width:18%; float:right;">
+
+                <div class="editor-label">
+                    <label>&nbsp &nbsp &nbsp &nbsp&nbsp &nbspFecha</label>
+                </div>
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_orden_alistamiento)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_orden_alistamiento)
+                    @Html.ValidationMessageFor(model => model.fecha_orden_alistamiento)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_alistamiento)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_alistamiento)
+                    @Html.ValidationMessageFor(model => model.fecha_alistamiento)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_accesorios)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_accesorios)
+                    @Html.ValidationMessageFor(model => model.fecha_accesorios)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_logos)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_logos)
+                    @Html.ValidationMessageFor(model => model.fecha_logos)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_placas)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_placas)
+                    @Html.ValidationMessageFor(model => model.fecha_placas)
+                </div>
+
+                <br />
+
+                <div class="editor-label">
+                    <label>&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp Fecha</label>
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_entrega_carpetas)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_entrega_carpetas)
+                    @Html.ValidationMessageFor(model => model.fecha_entrega_carpetas)
+                </div>
+
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_program_nineras)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_program_nineras)
+                    @Html.ValidationMessageFor(model => model.fecha_program_nineras)
+                </div>
+
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_reporte_entrega)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_reporte_entrega)
+                    @Html.ValidationMessageFor(model => model.fecha_reporte_entrega)
+                </div>
+
+                <br />
+                <div class="editor-field" style="width: 200%; height: 75%;">
+                    @Html.EditorFor(model => model.notas)
+                    @Html.ValidationMessageFor(model => model.notas)
+                </div>
+            </div>
+
+
+            <div style="width:16%; float:right;">
+                <div class="editor-label">
+                    <label>OPERACIONES</label>
+                </div>
+                <div class="editor-label">
+                    <label>Orden Alistamiento:</label>
+                </div>
+                <div class="editor-label">
+                    <label>Alistamiento:</label>
+                </div>
+                <div class="editor-label">
+                    <label>Accesorios:</label>
+                </div>
+                <div class="editor-label">
+                    <label>Logos:</label>
+                </div>
+                <div class="editor-label">
+                    <label>Placas:</label>
+                </div>
+                <br />
+
+                <div class="editor-label">
+                    <label>ENTREGA</label>
+                </div>
+                <div class="editor-label">
+                    <label>Entrega Carpetas:</label>
+                </div>
+                <div class="editor-label">
+                    <label>Programación Niñeras:</label>
+                </div>
+                <div class="editor-label">
+                    <label>Reporte Entrega:</label>
+                </div>
+                <br />
+                <div class="editor-label">
+                    <label>Notas:</label>
+                </div>
+            </div>
+
+            <div style="width:20%; float:right;">
+
+                <div class="editor-label">
+                    <label>&nbsp &nbspFecha Radicado</label>
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_radicado_improntas)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_radicado_improntas)
+                    @Html.ValidationMessageFor(model => model.fecha_radicado_improntas)
+                </div>
+
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_radicado_factura)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_radicado_factura)
+                    @Html.ValidationMessageFor(model => model.fecha_radicado_factura)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_radicado_manifiesto)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_radicado_manifiesto)
+                    @Html.ValidationMessageFor(model => model.fecha_radicado_manifiesto)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_radicado_pantallazo)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_radicado_pantallazo)
+                    @Html.ValidationMessageFor(model => model.fecha_radicado_pantallazo)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_radicado_declaracion)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_radicado_declaracion)
+                    @Html.ValidationMessageFor(model => model.fecha_radicado_declaracion)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_radicado_fac_carroceria)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_radicado_fac_carroceria)
+                    @Html.ValidationMessageFor(model => model.fecha_radicado_fac_carroceria)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_radicado_homol_chasis)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_radicado_homol_chasis)
+                    @Html.ValidationMessageFor(model => model.fecha_radicado_homol_chasis)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_radicado_homol_carr)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_radicado_homol_carr)
+                    @Html.ValidationMessageFor(model => model.fecha_radicado_homol_carr)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_radicado_contrato_mandato)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_radicado_contrato_mandato)
+                    @Html.ValidationMessageFor(model => model.fecha_radicado_contrato_mandato)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_radicado_formul_matricula)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_radicado_formul_matricula)
+                    @Html.ValidationMessageFor(model => model.fecha_radicado_formul_matricula)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_radicado_rut)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_radicado_rut)
+                    @Html.ValidationMessageFor(model => model.fecha_radicado_rut)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_radicado_cedula)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_radicado_cedula)
+                    @Html.ValidationMessageFor(model => model.fecha_radicado_cedula)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_radicado_resolucion)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_radicado_resolucion)
+                    @Html.ValidationMessageFor(model => model.fecha_radicado_resolucion)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_radicado_acta_posesion)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_radicado_acta_posesion)
+                    @Html.ValidationMessageFor(model => model.fecha_radicado_acta_posesion)
+                </div>
+            </div>
+
+            <div style="width:20%; float:right;">
+
+                <div class="editor-label">
+                    <label>&nbsp &nbsp Fecha Llegada</label>
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_llegada_improntas)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_llegada_improntas)
+                    @Html.ValidationMessageFor(model => model.fecha_llegada_improntas)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_llegada_factura)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_llegada_factura)
+                    @Html.ValidationMessageFor(model => model.fecha_llegada_factura)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_llegada_manifiesto)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_llegada_manifiesto)
+                    @Html.ValidationMessageFor(model => model.fecha_llegada_manifiesto)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_llegada_pantallazo)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_llegada_pantallazo)
+                    @Html.ValidationMessageFor(model => model.fecha_llegada_pantallazo)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_llegada_declaracion)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_llegada_declaracion)
+                    @Html.ValidationMessageFor(model => model.fecha_llegada_declaracion)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_llegada_fac_carroceria)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_llegada_fac_carroceria)
+                    @Html.ValidationMessageFor(model => model.fecha_llegada_fac_carroceria)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_llegada_homol_chasis)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_llegada_homol_chasis)
+                    @Html.ValidationMessageFor(model => model.fecha_llegada_homol_chasis)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_llegada_homol_carr)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_llegada_homol_carr)
+                    @Html.ValidationMessageFor(model => model.fecha_llegada_homol_carr)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_llegada_contrato_mandato)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_llegada_contrato_mandato)
+                    @Html.ValidationMessageFor(model => model.fecha_llegada_contrato_mandato)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_llegada_formul_matricula)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_llegada_formul_matricula)
+                    @Html.ValidationMessageFor(model => model.fecha_llegada_formul_matricula)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_llegada_rut)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_llegada_rut)
+                    @Html.ValidationMessageFor(model => model.fecha_llegada_rut)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_llegada_cedula)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_llegada_cedula)
+                    @Html.ValidationMessageFor(model => model.fecha_llegada_cedula)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_llegada_resolucion)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_llegada_resolucion)
+                    @Html.ValidationMessageFor(model => model.fecha_llegada_resolucion)
+                </div>
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_llegada_acta_posesion)
+                    </div>*@
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_llegada_acta_posesion)
+                    @Html.ValidationMessageFor(model => model.fecha_llegada_acta_posesion)
+                </div>
+            </div>
+
+            <div style="width:20%; float:right;">
+                <div class="editor-label">
+                    <label>DOCUMENTOS</label>
+                </div>
+                <div class="editor-label">
+                    <label>1. Improntas:</label>
+                </div>
+                <div class="editor-label">
+                    <label>2. Factura:</label>
+                </div>
+                <div class="editor-label">
+                    <label>3. Manifiesto:</label>
+                </div>
+                <div class="editor-label">
+                    <label>4. Pantallazo:</label>
+                </div>
+                <div class="editor-label">
+                    <label>5. Declaración de Impuestos:</label>
+                </div>
+                <div class="editor-label">
+                    <label>6. Factura Carrocera:</label>
+                </div>
+                <div class="editor-label">
+                    <label>7. Homologación Chasis:</label>
+                </div>
+                <div class="editor-label">
+                    <label>8. Homologación Carrocería:</label>
+                </div>
+                <div class="editor-label">
+                    <label>9. Contrato Mandato:</label>
+                </div>
+                <div class="editor-label">
+                    <label>10. Formulario Matricula:</label>
+                </div>
+                <div class="editor-label">
+                    <label>11. RUT:</label>
+                </div>
+                <div class="editor-label">
+                    <label>12. Cédula:</label>
+                </div>
+                <div class="editor-label">
+                    <label>13. Resolución:</label>
+                </div>
+                <div class="editor-label">
+                    <label>14. Acta Posesión:</label>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+
+            <div style="width:50%; float:right;">
+                <div class="editor-label">
+                    <label>Placa:</label> &nbsp &nbsp
+                    @Html.EditorFor(model => model.placa, new { htmlAttributes = new { @style = "text-transform:uppercase" } })
+                    @Html.ValidationMessageFor(model => model.placa)
+                </div>
+            </div>
+
+            <div style="width:20%; float:right;">
+                <div class="editor-label">
+                    <label>Fecha Matricula:</label> &nbsp &nbsp
+                    @Html.EditorFor(model => model.fecha_matricula)
+                    @Html.ValidationMessageFor(model => model.fecha_matricula)
+                </div>
+            </div>
+        </fieldset>
+        <div class="editor-field">
+            <input type="submit" value="Crear" class="btn btn-success" />
+            <input type="submit" class="btn btn-default" value="Ir al Listado" />
+        </div>
+    </div>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

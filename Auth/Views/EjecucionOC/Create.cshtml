@@ -1,0 +1,91 @@
+﻿@model Auth.Models.EjecucionOC
+
+@{
+    ViewBag.Title = "Crear Nuevo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "EjecucionOC", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Crear Ejecución Orden de Compra</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OC)
+            <div class="editor-field">
+                @Html.DropDownList("OC", new SelectList(ViewBag.ListaOCs, "OC", "OC"), "Seleccione OC")
+                @Html.ValidationMessageFor(model => model.OC)
+            </div>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.fecha_probable_entrega)
+            <div class="editor-field">
+                @Html.EditorFor(model => model.fecha_probable_entrega)
+                @Html.ValidationMessageFor(model => model.fecha_probable_entrega)
+            </div>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.fecha_entrega_final)
+            <div class="editor-field">
+                @Html.EditorFor(model => model.fecha_entrega_final)
+                @Html.ValidationMessageFor(model => model.fecha_entrega_final)
+            </div>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.funcionario_recibe)
+            <div class="editor-field">
+                @Html.EditorFor(model => model.funcionario_recibe, new { htmlAttributes = new { @style = "text-transform:uppercase" } })
+                @Html.ValidationMessageFor(model => model.funcionario_recibe)
+            </div>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.entrega_am)
+            <div class="editor-field">
+                @Html.EditorFor(model => model.entrega_am, new { htmlAttributes = new { @style = "text-transform:uppercase" } })
+                @Html.ValidationMessageFor(model => model.entrega_am)
+            </div>
+        </div>
+
+        <div class="editor-label">
+            <label>Adjuntos:</label>
+        </div>
+        <div class="editor-field">
+            <input type="file" name="file" multiple="multiple" />
+        </div>
+        <p></p>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.notas)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.notas)
+            @Html.ValidationMessageFor(model => model.notas)
+        </div>
+
+        <p>
+            <div class="editor-field">
+                <input type="submit" value="Crear" class="btn btn-success" />
+            </div>
+        </p>
+
+    </fieldset>
+
+    <div>
+        <input type="submit" class="btn btn-default" value="Ir al Listado" />
+    </div>
+}
+
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+}
+
+

@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Auth.Models.EjecucionOC>
+
+@{
+    ViewBag.Title = "Ejecución OC";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Ejecución Orden de Compra</h3>
+
+<div>
+    @Html.ActionLink("Crear Nuevo", "Create", "EjecucionOC", new { @class = "btn btn-info" })
+</div>
+<hr />
+<br />
+
+@using (Html.BeginForm())
+{
+    <p>
+        Número OC: @Html.TextBox("Busqueda")
+        <input type="submit" value="Buscar" class="btn-default" />
+    </p>
+}
+<br />
+<table style="width:100%">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_probable_entrega)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_entrega_final)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.funcionario_recibe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.entrega_am)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.notas)
+        </th>*@
+        <th>Total Archivos</th>
+        <th>Acciones</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_probable_entrega)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_entrega_final)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.funcionario_recibe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.entrega_am)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.notas)
+            </td>*@
+            <td>
+                @if (item.ArchivoEjecucionOCs.Count() == 0)
+                {
+                    <span>Sin Adjunto(s)</span>
+                }
+                else
+                {
+                    <span>@item.ArchivoEjecucionOCs.Count() Adjunto(s)</span>
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @*@Html.ActionLink("Detalles", "Details", new { id=item.Id }) |*@
+                <a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">Eliminar</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section Scripts {
+
+    <script>
+        $('.deleteItem').click(function (e) {
+            e.preventDefault();
+            var $ctrl = $(this);
+            if (confirm('Desea eliminar el registro de Ejecución de Orden de Compra?')) {
+                $.ajax({
+                    url: '@Url.Action("Delete")',
+                    type: 'POST',
+                    data: { id: $(this).data('id') }
+                }).done(function (data) {
+                    if (data.Result == "OK") {
+                        $ctrl.closest('tr').remove();
+                    }
+                    else if (data.Result.Message) {
+                        alert(data.Result.Message);
+                    }
+                }).fail(function () {
+                    alert("Sucedió un error, intente nuevamente.");
+                })
+            }
+        });
+    </script>
+}

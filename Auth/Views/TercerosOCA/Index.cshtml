@@ -1,0 +1,136 @@
+﻿@model IEnumerable<Auth.Models.TercerosOCA>
+
+@{
+    ViewBag.Title = "Terceros";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Terceros</h3>
+
+@*<div>
+        @Html.ActionLink("Crear Nuevo", "Create", "TercerosOCA", new { @class = "btn btn-info" })
+    </div>
+    <hr />*@
+<br />
+
+@using (Html.BeginForm("Index", "TercerosOCA", FormMethod.Get))
+{
+    <p>
+        Búsqueda por Nombre: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Buscar" class="btn-default" />
+    </p>
+}
+<br />
+
+<table style="width:100%">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.nit)*@
+            @Html.ActionLink("Nit Tercero", "Index", new { sortOrder = ViewBag.NitSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.digito)
+            </th>*@
+        <th>
+            @Html.ActionLink("Nombre Tercero", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+            @*@Html.DisplayNameFor(model => model.nombres)*@
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ciudad)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.telefono_1)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.telefono_2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tipo_identificacion)
+            </th>*@
+        @*<th>
+                @Html.DisplayNameFor(model => model.pais)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.mail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.celular)
+        </th>
+        <th>Acciones</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nit)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.digito)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.nombres)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ciudad)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono_1)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.telefono_2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tipo_identificacion)
+                </td>*@
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.pais)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.mail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.celular)
+            </td>
+            <td>
+                @*@Html.ActionLink("Editar", "Edit", new { id = item.Id }) |*@
+                @*@Html.ActionLink("Detalles", "Details", new { id = item.Id }) |*@
+                <a href="javascript:void(0);" data-id="@item.nit" class="deleteItem">Eliminar</a>
+            </td>
+        </tr>
+    }
+</table>
+
+
+@section Scripts {
+
+    <script>
+        $('.deleteItem').click(function (e) {
+            e.preventDefault();
+            var $ctrl = $(this);
+            if (confirm('Desea eliminar el Tercero?')) {
+                $.ajax({
+                    url: '@Url.Action("Delete")',
+                    type: 'POST',
+                    data: { id: $(this).data('id') }
+                }).done(function (data) {
+                    if (data.Result == "OK") {
+                        $ctrl.closest('tr').remove();
+                    }
+                    else if (data.Result.Message) {
+                        alert(data.Result.Message);
+                    }
+                }).fail(function () {
+                    alert("Sucedió un error, intente nuevamente.");
+                })
+            }
+        });
+    </script>
+}
+

@@ -1,0 +1,198 @@
+﻿@model IEnumerable<Auth.Models.OrdenCompra>
+
+@{
+    ViewBag.Title = "Orden de Compra";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Orden de Compra</h3>
+
+<div>
+    @Html.ActionLink("Crear Nuevo", "Create", "OrdenCompras", new { @class = "btn btn-info" })
+</div>
+<hr />
+<br />
+
+@using (Html.BeginForm())
+{
+    <p>
+        Número OC: @Html.TextBox("Busqueda")
+        <input type="submit" value="Buscar" class="btn-default" />
+    </p>
+}
+
+<br />
+<table style="width:100%">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_emision)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_vencimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ordenador_gasto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.supervisor)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.telefono_1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ext_1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefono_2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ext_2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.celular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mail_ordenador_gasto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mail_supervisor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.numero_AZ)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha_pago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha_recaudo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.imagen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha_llegada_comp_pago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha_solicitud_comp_pago)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.ValorOC)
+        </th>
+        <th>Total Archivos</th>
+        <th>Acciones</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_emision)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_vencimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ordenador_gasto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.supervisor)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.telefono_1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ext_1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telefono_2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ext_2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.celular)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mail_ordenador_gasto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mail_supervisor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.numero_AZ)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fecha_pago)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fecha_recaudo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.imagen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fecha_llegada_comp_pago)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fecha_solicitud_comp_pago)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorOC)
+            </td>
+            <td>
+                @if (item.ArchivoOCs.Count() == 0)
+                {
+                    <span>Sin Adjunto(s)</span>
+                }
+                else
+                {
+                    <span>@item.ArchivoOCs.Count() Adjunto(s)</span>
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @*@Html.ActionLink("Detalles", "Details", new { id = item.Id }) |*@
+                <a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">Eliminar</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section Scripts {
+
+    <script>
+        $('.deleteItem').click(function (e) {
+            e.preventDefault();
+            var $ctrl = $(this);
+            if (confirm('Desea eliminar la Orden de Compra?')) {
+                $.ajax({
+                    url: '@Url.Action("Delete")',
+                    type: 'POST',
+                    data: { id: $(this).data('id') }
+                }).done(function (data) {
+                    if (data.Result == "OK") {
+                        $ctrl.closest('tr').remove();
+                    }
+                    else if (data.Result.Message) {
+                        alert(data.Result.Message);
+                    }
+                }).fail(function () {
+                    alert("Sucedió un error, intente nuevamente.");
+                })
+            }
+        });
+    </script>
+}
