@@ -39,7 +39,7 @@ namespace Auth.Models
         public int? IdSegmento { get; set; }
 
         [Display(Name = "Cilindraje/PBV/Cant. Pasajeros/Característica")]
-        public int? IdCilindraje { get; set; }
+        public int? IdDetalle { get; set; }
 
         [Display(Name = "Adecuación (Solo Vh Especial)")]
         public int? IdAdecuacion { get; set; } 

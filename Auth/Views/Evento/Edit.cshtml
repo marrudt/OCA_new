@@ -141,6 +141,7 @@
             <div class="editor-label">
                 @Html.LabelFor(model => model.IdSegmento)
                 <div class="editor-field">
+                    @*@Html.DropDownListFor(model => model.IdSegmento, ViewBag.ddlSegmento as SelectList, "Seleccione Segmento")*@
                     @Html.DropDownList("ddlSegmento", new SelectList(string.Empty), "Seleccione Segmento", null)
                     @Html.ValidationMessageFor(model => model.IdSegmento)
                 </div>

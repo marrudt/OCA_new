@@ -25,10 +25,7 @@ namespace Auth.Repositorio
         public DbSet<EntidadMatricula> EntidadMatriculas { get; set; }
         public DbSet<ProveedorOC> ProveedorOCs { get; set; }
         public DbSet<ArchivoProveedorOC> ArchivoProveedorOCs { get; set; }
-        public DbSet<Evento> Eventoes { get; set; }
-        public DbSet<Segmento> Segmentoes { get; set; }
-        public DbSet<Cilindraje> Cilindrajes { get; set; }
-        public DbSet<Adecuacion> Adecuacions { get; set; }
+        public DbSet<Evento> Eventoes { get; set; }        
         public DbSet<IntervaloPrecio> IntervaloPrecios { get; set; }
         public DbSet<Transmision> Transmisiones { get; set; }
         public DbSet<MttoPreventivo> MttoPreventivos { get; set; }

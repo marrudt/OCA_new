@@ -26,29 +26,29 @@ namespace Auth.Controllers
             return View(Numero);
         }
 
-        public JsonResult GetSegmento()
-        {
-            var segmentoData = db.Segmentoes.ToList().OrderBy(x => x.DesSegmento);
-            return Json(segmentoData, JsonRequestBehavior.AllowGet);
-        }
-        public JsonResult GetCilindraje(int Id)
-        {
-            var cilindrajeData = db.Cilindrajes.Where(x => x.IdSegmento == Id).OrderBy(x => x.DesCilindraje);
-            return Json(cilindrajeData);
-        }
-        public JsonResult GetAdecuacion(int Id)
-        {
-            var adecuacionData = db.Adecuacions.Where(x => x.IdCilindraje == Id).OrderBy(x => x.DesAdecuacion);
-            return Json(adecuacionData);
-        }
+        //public JsonResult GetSegmento()
+        //{
+        //    var segmentoData = db.Segmentoes.ToList().OrderBy(x => x.DesSegmento);
+        //    return Json(segmentoData, JsonRequestBehavior.AllowGet);
+        //}
+        //public JsonResult GetCilindraje(int Id)
+        //{
+        //    var cilindrajeData = db.Cilindrajes.Where(x => x.IdSegmento == Id).OrderBy(x => x.DesCilindraje);
+        //    return Json(cilindrajeData);
+        //}
+        //public JsonResult GetAdecuacion(int Id)
+        //{
+        //    var adecuacionData = db.Adecuacions.Where(x => x.IdCilindraje == Id).OrderBy(x => x.DesAdecuacion);
+        //    return Json(adecuacionData);
+        //}
 
         // GET: Evento/Create
         public ActionResult Create()
         {
             
-            ViewBag.ddlSegmento = new SelectList(db.Segmentoes.OrderBy(x => x.DesSegmento), "Id", "DesSegmento");
-            ViewBag.ddlCilindraje = new SelectList(db.Cilindrajes.OrderBy(x => x.DesCilindraje), "Id", "DesCilindraje");
-            ViewBag.ddlAdecuacion = new SelectList(db.Adecuacions.OrderBy(x => x.DesAdecuacion), "Id", "DesAdecuacion");
+            //ViewBag.ListaSegmentos = new SelectList(db.Segmentoes.OrderBy(x => x.DesSegmento), "Id", "DesSegmento");
+            //ViewBag.ListaCilindrajes = new SelectList(db.Cilindrajes.OrderBy(x => x.DesCilindraje), "Id", "DesCilindraje");
+            //ViewBag.ListaAdecuacion = new SelectList(db.Adecuacions.OrderBy(x => x.DesAdecuacion), "Id", "DesAdecuacion");
             ViewBag.ListaIntervalos = new SelectList(db.IntervaloPrecios.OrderBy(x => x.DesIntervalo).Where(m => m.Activo == true), "CodIntervalo", "Desintervalo");
             ViewBag.ListaVigencias = new SelectList(db.VigenciaSoats.OrderBy(x => x.DesVigencia).Where(m => m.Activo == true), "CodVigencia", "DesVigencia");
             ViewBag.ListaMttos = new SelectList(db.MttoPreventivos.OrderBy(x => x.DesMtto).Where(m => m.Activo == true), "CodMtto", "DesMtto");
@@ -72,10 +72,13 @@ namespace Auth.Controllers
             }
             else
             {
-                ViewBag.ddlSegmento = new SelectList(db.Segmentoes, "Id", "DesSegmento", evento.Id);
-                //ViewBag.ddlSegmento = new SelectList(db.Segmentoes.ToList().OrderBy(x => x.DesSegmento), "Id", "DesSegmento");
-                ViewBag.ddlCilindraje = new SelectList(db.Cilindrajes.ToList().OrderBy(x => x.DesCilindraje), "Id", "DesCilindraje");
-                ViewBag.ddlAdecuacion = new SelectList(db.Adecuacions.ToList().OrderBy(x => x.DesAdecuacion), "Id", "DesAdecuacion");
+                //ViewBag.ddlSegmento = new SelectList(db.Segmentoes, "Id", "DesSegmento", evento.Id);
+                ////ViewBag.ddlSegmento = new SelectList(db.Segmentoes.ToList().OrderBy(x => x.DesSegmento), "Id", "DesSegmento");
+                //ViewBag.ddlCilindraje = new SelectList(db.Cilindrajes.ToList().OrderBy(x => x.DesCilindraje), "Id", "DesCilindraje");
+                //ViewBag.ddlAdecuacion = new SelectList(db.Adecuacions.ToList().OrderBy(x => x.DesAdecuacion), "Id", "DesAdecuacion");
+                //ViewBag.ListaSegmentos = new SelectList(db.Segmentoes.OrderBy(x => x.DesSegmento), "Id", "DesSegmento");
+                //ViewBag.ListaCilindrajes = new SelectList(db.Cilindrajes.OrderBy(x => x.DesCilindraje), "Id", "DesCilindraje");
+                //ViewBag.ListaAdecuacion = new SelectList(db.Adecuacions.OrderBy(x => x.DesAdecuacion), "Id", "DesAdecuacion");
                 ViewBag.ListaIntervalos = new SelectList(db.IntervaloPrecios.OrderBy(x => x.DesIntervalo).Where(m => m.Activo == true), "CodIntervalo", "Desintervalo");
                 ViewBag.ListaVigencias = new SelectList(db.VigenciaSoats.OrderBy(x => x.DesVigencia).Where(m => m.Activo == true), "CodVigencia", "DesVigencia");
                 ViewBag.ListaMttos = new SelectList(db.MttoPreventivos.OrderBy(x => x.DesMtto).Where(m => m.Activo == true), "CodMtto", "DesMtto");
@@ -100,10 +103,9 @@ namespace Auth.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ddlSegmento = new SelectList(db.Segmentoes, "Id", "DesSegmento", evento.Id);
-            //ViewBag.ddlSegmento = new SelectList(db.Segmentoes.OrderBy(x => x.DesSegmento), "Id", "DesSegmento");
-            ViewBag.ddlCilindraje = new SelectList(db.Cilindrajes.OrderBy(x => x.DesCilindraje), "Id", "DesCilindraje");
-            ViewBag.ddlAdecuacion = new SelectList(db.Adecuacions.OrderBy(x => x.DesAdecuacion), "Id", "DesAdecuacion");
+            //ViewBag.ddlSegmento = new SelectList(db.Segmentoes.OrderBy(x => x.DesSegmento), "Value", "Text");
+            //ViewBag.ddlCilindraje = new SelectList(db.Cilindrajes.OrderBy(x => x.DesCilindraje), "Value", "Text");
+            //ViewBag.ddlAdecuacion = new SelectList(db.Adecuacions.OrderBy(x => x.DesAdecuacion), "Value", "Text");
             ViewBag.ListaIntervalos = new SelectList(db.IntervaloPrecios.OrderBy(x => x.DesIntervalo).Where(m => m.Activo == true), "CodIntervalo", "Desintervalo");
             ViewBag.ListaVigencias = new SelectList(db.VigenciaSoats.OrderBy(x => x.DesVigencia).Where(m => m.Activo == true), "CodVigencia", "DesVigencia");
             ViewBag.ListaMttos = new SelectList(db.MttoPreventivos.OrderBy(x => x.DesMtto).Where(m => m.Activo == true), "CodMtto", "DesMtto");
