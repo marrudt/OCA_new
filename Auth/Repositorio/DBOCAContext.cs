@@ -30,6 +30,8 @@ namespace Auth.Repositorio
         public DbSet<Transmision> Transmisiones { get; set; }
         public DbSet<MttoPreventivo> MttoPreventivos { get; set; }
         public DbSet<VigenciaSoat> VigenciaSoats { get; set; }
-        public DbSet<CiudadOCA> CiudadOCA { get; set; }        
-    }
-}
+        public DbSet<CiudadOCA> CiudadOCA { get; set; }
+        public DbSet<Segmento> Segmento { get; set; }
+        public DbSet<Detalle> Detalle { get; set; }
+        public DbSet<Adecuacion> Adecuacion { get; set; }    }
+} 

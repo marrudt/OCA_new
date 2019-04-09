@@ -91,24 +91,24 @@
             <div class="editor-label">
                 @Html.LabelFor(model => model.IdSegmento)
                 <div class="editor-field">
-                    @Html.DropDownListFor(model => model.IdSegmento, ViewBag.ddlSegmento as SelectList, "Seleccione Segmento")
-                    @*@Html.DropDownList("ddlSegmento", new SelectList(string.Empty, "Id", "DesSegmento"), "Seleccione Segmento", null)*@
+                    @*@Html.DropDownListFor(model => model.IdSegmento, ViewBag.ddlSegmento as SelectList, "Seleccione Segmento")*@
+                    @Html.DropDownList("ddlSegmento", new SelectList(string.Empty, "Value", "Text"), "Seleccione Segmento", null)
                     @Html.ValidationMessageFor(model => model.IdSegmento)
                 </div>
             </div>
 
             <div class="editor-label">
-                @Html.LabelFor(model => model.IdCilindraje)
+                @Html.LabelFor(model => model.IdDetalle)
                 <div class="editor-field">
-                    @Html.DropDownList("ddlCilindraje", new SelectList(string.Empty, "Id", "DesCilindraje"), "Seleccione Opción", null)
-                    @Html.ValidationMessageFor(model => model.IdCilindraje)
+                    @Html.DropDownList("ddlDetalle", new SelectList(string.Empty, "Value", "Text"), "Seleccione Detalle", null)
+                    @Html.ValidationMessageFor(model => model.IdDetalle)
                 </div>
             </div>
 
             <div class="editor-label">
                 @Html.LabelFor(model => model.IdAdecuacion)
                 <div class="editor-field">
-                    @Html.DropDownList("ddlAdecuacion", new SelectList(string.Empty, "Id", "DesAdecuacion"), "Seleccione Adecuación", null)
+                    @Html.DropDownList("ddlAdecuacion", new SelectList(string.Empty, "Value", "Text"), "Seleccione Adecuación", null)
                     @Html.ValidationMessageFor(model => model.IdAdecuacion)
                 </div>
             </div>
@@ -239,40 +239,40 @@
                 datatype: "Json",
                 success: function (data) {
                     $.each(data, function (create, value) {
-                        $('#ddlSegmento').append('<option value="' + value.Id + '">' + value.DesSegmento + '</option>');
+                        $('#ddlSegmento').append('<option value="' + value.IdSegmento + '">' + value.DesSegmento + '</option>');
                     });
                 }
             });
         });
         $(document).ready(function () {
             $('#ddlSegmento').change(function () {
-                $('#ddlCilindraje').empty();
+                $('#ddlDetalle').empty();
                 $.ajax({
                     type: "POST",
-                    url: "/Evento/GetCilindraje",
+                    url: "/Evento/GetDetalle",
                     datatype: "Json",
                     data: { Id: $('#ddlSegmento').val() },
                     success: function (data) {
-                        $('#ddlCilindraje').append('<option value>Seleccione Opción</option>');
+                        $('#ddlDetalle').append('<option value>Seleccione Detalle</option>');
                         $.each(data, function (create, value) {
-                            $('#ddlCilindraje').append('<option value="' + value.Id + '">' + value.DesCilindraje + '</option>');
+                            $('#ddlDetalle').append('<option value="' + value.IdDetalle + '">' + value.DesCilindraje + '</option>');
                         });
                     }
                 });
             });
         });
         $(document).ready(function () {
-            $('#ddlCilindraje').change(function () {
+            $('#ddlDetalle').change(function () {
                 $('#ddlAdecuacion').empty();
                 $.ajax({
                     type: "POST",
                     url: "/Evento/GetAdecuacion",
                     datatype: "Json",
-                    data: { Id: $('#ddlCilindraje').val() },
+                    data: { Id: $('#ddlDetalle').val() },
                     success: function (data) {
                         $('#ddlAdecuacion').append('<option value>Seleccione Adecuación</option>');
                         $.each(data, function (create, value) {
-                            $('#ddlAdecuacion').append('<option value="' + value.Id + '">' + value.DesAdecuacion + '</option>');
+                            $('#ddlAdecuacion').append('<option value="' + value.IdAdecuacion + '">' + value.DesAdecuacion + '</option>');
                         });
                     }
                 });

@@ -1,0 +1,201 @@
+﻿@model Auth.Models.Evento
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Evento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Numero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ciudad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ciudad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comprador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comprador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaSolicitud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaSolicitud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdSegmento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdSegmento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdDetalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdDetalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdAdecuacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdAdecuacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IntervaloPrecio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IntervaloPrecio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Transmision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Transmision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Unidades)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unidades)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MttoPreventivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MttoPreventivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReqMatricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReqMatricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImpuestoRodamiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImpuestoRodamiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Soat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vigencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vigencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GravamenesAdicionales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GravamenesAdicionales)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Activo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

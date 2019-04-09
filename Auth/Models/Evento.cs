@@ -38,7 +38,7 @@ namespace Auth.Models
         [Display(Name = "Segmento")]
         public int? IdSegmento { get; set; }
 
-        [Display(Name = "Cilindraje/PBV/Cant. Pasajeros/Característica")]
+        [Display(Name = "Detalle")]
         public int? IdDetalle { get; set; }
 
         [Display(Name = "Adecuación (Solo Vh Especial)")]
@@ -74,6 +74,6 @@ namespace Auth.Models
         public decimal Total { get; set; }
 
         [DataType(DataType.MultilineText)]
-        public string Notas { get; set; }       
+        public string Notas { get; set; }
     }
 }

@@ -1,58 +1,8 @@
-﻿@model Auth.Models.Evento
+﻿@model Auth.Models.Evento 
 
 @{
     ViewBag.Title = "Editar Evento";
 }
-
-<script src="~/Scripts/jquery-1.10.2.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $.ajax({
-            type: "GET",
-            url: "/Evento/GetSegmento",
-            datatype: "Json",
-            success: function (data) {
-                $.each(data, function (edit, value) {     
-                    $('#ddlSegmento').append('<option value="' + value.Id + '">' + value.DesSegmento + '</option>');
-                });
-            }
-        });
-    });
-    $(document).ready(function () {
-        $('#ddlSegmento').change(function () {
-            $('#ddlCilindraje').empty();
-            $.ajax({
-                type: "POST",
-                url: "/Evento/GetCilindraje",
-                datatype: "Json",
-                data: { Id: $('#ddlSegmento').val() },
-                success: function (data) {
-                    $('#ddlCilindraje').append('<option value>Seleccione</option>');
-                    $.each(data, function (edit, value) {
-                        $('#ddlCilindraje').append('<option value="' + value.Id + '">' + value.DesCilindraje + '</option>');
-                    });
-                }
-            });
-        });
-    });
-    $(document).ready(function () {
-        $('#ddlCilindraje').change(function () {
-            $('#ddlAdecuacion').empty();
-            $.ajax({
-                type: "POST",
-                url: "/Evento/GetAdecuacion",
-                datatype: "Json",
-                data: { Id: $('#ddlCilindraje').val() },
-                success: function (data) {
-                    $('#ddlAdecuacion').append('<option value>Seleccione Adecuación</option>');
-                    $.each(data, function (edit, value) {
-                        $('#ddlAdecuacion').append('<option value="' + value.Id + '">' + value.DesAdecuacion + '</option>');
-                    });
-                }
-            });
-        });
-    });
-</script>
 
 @using (Html.BeginForm("Edit", "Evento", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -148,10 +98,10 @@
             </div>
 
             <div class="editor-label">
-                @Html.LabelFor(model => model.IdCilindraje)
+                @Html.LabelFor(model => model.IdDetalle)
                 <div class="editor-field">
-                    @Html.DropDownList("ddlCilindraje", new SelectList(string.Empty, "Value", "Text"), "Seleccione Opción", null)
-                    @Html.ValidationMessageFor(model => model.IdCilindraje)
+                    @Html.DropDownList("ddlDetalle", new SelectList(string.Empty, "Value", "Text"), "Seleccione Detalle", null)
+                    @Html.ValidationMessageFor(model => model.IdDetalle)
                 </div>
             </div>
 
@@ -299,4 +249,53 @@
             }
         });
     </script>
-    }
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: "/Evento/GetSegmento",
+                datatype: "Json",
+                success: function (data) {
+                    $.each(data, function (edit, value) {
+                        $('#ddlSegmento').append('<option value="' + value.IdSegmento + '">' + value.DesSegmento + '</option>');
+                    });
+                }
+            });
+        });
+        $(document).ready(function () {
+            $('#ddlSegmento').change(function () {
+                $('#ddlDetalle').empty();
+                $.ajax({
+                    type: "POST",
+                    url: "/Evento/GetDetalle",
+                    datatype: "Json",
+                    data: { Id: $('#ddlSegmento').val() },
+                    success: function (data) {
+                        $('#ddlDetalle').append('<option value>Seleccione Detalles</option>');
+                        $.each(data, function (edit, value) {
+                            $('#ddlDetalle').append('<option value="' + value.IdDetalle + '">' + value.DesDetalle + '</option>');
+                        });
+                    }
+                });
+            });
+        });
+        $(document).ready(function () {
+            $('#ddlDetalle').change(function () {
+                $('#ddlAdecuacion').empty();
+                $.ajax({
+                    type: "POST",
+                    url: "/Evento/GetAdecuacion",
+                    datatype: "Json",
+                    data: { Id: $('#ddlDetalle').val() },
+                    success: function (data) {
+                        $('#ddlAdecuacion').append('<option value>Seleccione Adecuación</option>');
+                        $.each(data, function (edit, value) {
+                            $('#ddlAdecuacion').append('<option value="' + value.IdAdecuacion + '">' + value.DesAdecuacion + '</option>');
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}

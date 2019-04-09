@@ -26,21 +26,21 @@ namespace Auth.Controllers
             return View(Numero);
         }
 
-        //public JsonResult GetSegmento()
-        //{
-        //    var segmentoData = db.Segmentoes.ToList().OrderBy(x => x.DesSegmento);
-        //    return Json(segmentoData, JsonRequestBehavior.AllowGet);
-        //}
-        //public JsonResult GetCilindraje(int Id)
-        //{
-        //    var cilindrajeData = db.Cilindrajes.Where(x => x.IdSegmento == Id).OrderBy(x => x.DesCilindraje);
-        //    return Json(cilindrajeData);
-        //}
-        //public JsonResult GetAdecuacion(int Id)
-        //{
-        //    var adecuacionData = db.Adecuacions.Where(x => x.IdCilindraje == Id).OrderBy(x => x.DesAdecuacion);
-        //    return Json(adecuacionData);
-        //}
+        public JsonResult GetSegmento()
+        {
+            var segmentoData = db.Segmento.ToList().OrderBy(x => x.DesSegmento);
+            return Json(segmentoData, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult GetDetalle(int IdSegmento) 
+        {
+            var cilindrajeData = db.Detalle.Where(x => x.IdSegmento == IdSegmento).OrderBy(x => x.DesDetalle);
+            return Json(cilindrajeData);
+        }
+        public JsonResult GetAdecuacion(int IdDetalle)
+        {
+            var adecuacionData = db.Adecuacion.Where(x => x.IdDetalle == IdDetalle).OrderBy(x => x.DesAdecuacion);
+            return Json(adecuacionData);
+        }
 
         // GET: Evento/Create
         public ActionResult Create()

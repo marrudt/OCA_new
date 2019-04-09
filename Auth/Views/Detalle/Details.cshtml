@@ -1,0 +1,35 @@
+﻿@model Auth.Models.Detalle
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Detalle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DesDetalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DesDetalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdSegmento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdSegmento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdDetalle }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
