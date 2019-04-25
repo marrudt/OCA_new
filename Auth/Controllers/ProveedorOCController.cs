@@ -46,8 +46,8 @@ namespace Auth.Controllers
         // GET: ProveedorOC/Create
         public ActionResult Create()
         {
-            ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "Id", "OC");
-            ViewBag.ListaProveedores = new SelectList(db.Proveedors.OrderBy(x => x.nombres), "nit", "nombres");
+            ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "OC", "OC");
+            ViewBag.ListaProveedores = new SelectList(db.Proveedors.OrderBy(x => x.nombres), "nombres", "nombres");
             ViewBag.ListaReferencias = new SelectList(db.ReferenciasOC.OrderBy(x => x.descripcion), "codigo", "descripcion");
             
             return View();
@@ -86,8 +86,8 @@ namespace Auth.Controllers
             }
             else
             {
-                ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "Id", "OC");
-                ViewBag.ListaProveedores = new SelectList(db.Proveedors.OrderBy(x => x.nombres), "nit", "nombres");
+                ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "OC", "OC");
+                ViewBag.ListaProveedores = new SelectList(db.Proveedors.OrderBy(x => x.nombres), "nombres", "nombres");
                 ViewBag.ListaReferencias = new SelectList(db.ReferenciasOC.OrderBy(x => x.descripcion), "codigo", "descripcion");
             }
 
@@ -109,8 +109,8 @@ namespace Auth.Controllers
                 return HttpNotFound();
             }
 
-            ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "Id", "OC");
-            ViewBag.ListaProveedores = new SelectList(db.Proveedors.OrderBy(x => x.nombres), "nit", "nombres");
+            ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "OC", "OC");
+            ViewBag.ListaProveedores = new SelectList(db.Proveedors.OrderBy(x => x.nombres), "nombres", "nombres");
             ViewBag.ListaReferencias = new SelectList(db.ReferenciasOC.OrderBy(x => x.descripcion), "codigo", "descripcion");
 
             return View(proveedorOC);

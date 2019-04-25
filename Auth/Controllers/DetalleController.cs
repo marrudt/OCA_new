@@ -18,7 +18,7 @@ namespace Auth.Controllers
         // GET: Detalle
         public ActionResult Index()
         {
-            return View(db.Detalle.ToList());
+            return View(db.Detalles.ToList());
         }
 
         // GET: Detalle/Details/5
@@ -28,7 +28,7 @@ namespace Auth.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Detalle detalle = db.Detalle.Find(id);
+            Detalle detalle = db.Detalles.Find(id);
             if (detalle == null)
             {
                 return HttpNotFound();
@@ -51,7 +51,7 @@ namespace Auth.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Detalle.Add(detalle);
+                db.Detalles.Add(detalle);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -66,7 +66,7 @@ namespace Auth.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Detalle detalle = db.Detalle.Find(id);
+            Detalle detalle = db.Detalles.Find(id);
             if (detalle == null)
             {
                 return HttpNotFound();
@@ -97,7 +97,7 @@ namespace Auth.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Detalle detalle = db.Detalle.Find(id);
+            Detalle detalle = db.Detalles.Find(id);
             if (detalle == null)
             {
                 return HttpNotFound();
@@ -110,8 +110,8 @@ namespace Auth.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Detalle detalle = db.Detalle.Find(id);
-            db.Detalle.Remove(detalle);
+            Detalle detalle = db.Detalles.Find(id);
+            db.Detalles.Remove(detalle);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

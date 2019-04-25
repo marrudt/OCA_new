@@ -9,8 +9,11 @@ namespace Auth.Models
     public class Adecuacion
     {
         [Key]
+        [Display(Name = "Código")]
         public int IdAdecuacion { get; set; }
 
+        [Required(ErrorMessage = "Obligatorio")]
+        [Display(Name = "Descripción Adecuación")]
         public string DesAdecuacion { get; set; }
 
         public int IdDetalle { get; set; }

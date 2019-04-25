@@ -22,12 +22,12 @@
                 </div>
             </div>
 
-            <div style="width:40%; float:left;">
+            <div style="width:45%; float:left;">
                 <div class="editor-label">
                     @Html.LabelFor(model => model.nit)
                 </div>
                 <div class="editor-field">
-                    @Html.DropDownListFor(model => model.nit, ViewBag.ListaTerceros as SelectList, "Seleccione Cliente")
+                    @Html.DropDownListFor(model => model.nit, ViewBag.ListaTerceros as SelectList, "Seleccione Cliente",new { @style = "width:450px"  } )
                     @Html.ValidationMessageFor(model => model.nit)
                 </div>
             </div>
@@ -473,7 +473,7 @@
             <div style="width:50%; float:right;">
                 <div class="editor-label">
                     <label>Placa:</label> &nbsp &nbsp
-                    @Html.EditorFor(model => model.placa, new { htmlAttributes = new { @style = "text-transform:uppercase" } })
+                    @Html.EditorFor(model => model.placa, new { htmlAttributes = new { @style = "text-transform:uppercase;width:50px" } })
                     @Html.ValidationMessageFor(model => model.placa)
                 </div>
             </div>

@@ -12,17 +12,17 @@
     <fieldset>
         <legend>Editar Evento</legend>
 
-        <div style="width:30%; float:left;">
+        <div style="width:20%; float:left;">
             <div class="editor-label">
                 @Html.LabelFor(model => model.Numero)
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.Numero)
+                <div class="editor-field">                    
+                    @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { @readonly = "readonly", style= "width:80px" } })
                     @Html.ValidationMessageFor(model => model.Numero)
                 </div>
             </div>
         </div>
 
-        <div style="width:40%; float:left;">
+        <div style="width:50%; float:left;">
             <div class="editor-label">
                 @Html.LabelFor(model => model.Nit)
                 <div class="editor-field">
@@ -44,27 +44,27 @@
 
         <div style="width:100%; float:left;">
 
-            <div style="width:25%; float:left;">
+            <div style="width:20%; float:left;">
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Ciudad)
                     <div class="editor-field">
-                        @Html.DropDownListFor(model => model.Ciudad, ViewBag.ListaCiudades as SelectList, "Seleccione Ciudad")
+                        @Html.DropDownListFor(model => model.Ciudad, ViewBag.ListaCiudades as SelectList, "Seleccione Ciudad", new { style = "width:200px" })
                         @Html.ValidationMessageFor(model => model.Ciudad)
                     </div>
                 </div>
             </div>
 
-            <div style="width:25%; float:left;">
+            <div style="width:35%; float:left;">
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Comprador)
                     <div class="editor-field">
-                        @Html.EditorFor(model => model.Comprador)
+                        @Html.EditorFor(model => model.Comprador, new { htmlAttributes = new { @style = "text-transform:uppercase;width:350px" } })
                         @Html.ValidationMessageFor(model => model.Comprador)
                     </div>
                 </div>
             </div>
 
-            <div style="width:25%; float:left;">
+            <div style="width:20%; float:left;">
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Telefono)
                     <div class="editor-field">
@@ -78,7 +78,7 @@
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Email)
                     <div class="editor-field">
-                        @Html.EditorFor(model => model.Email)
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @style = "text-transform:lowercase;width:280px" } })
                         @Html.ValidationMessageFor(model => model.Email)
                     </div>
                 </div>
@@ -91,7 +91,7 @@
             <div class="editor-label">
                 @Html.LabelFor(model => model.IdSegmento)
                 <div class="editor-field">
-                    @Html.DropDownListFor(model => model.IdSegmento, ViewBag.ListaSegmentos as SelectList, "Seleccione Segmento", new { style = "width:200px" })
+                    @Html.DropDownListFor(model => model.IdSegmento, ViewBag.ListaSegmentos as SelectList, "Seleccione Segmento", new { style = "width:250px" })
                     @Html.ValidationMessageFor(model => model.IdSegmento)
                 </div>
             </div>
@@ -99,7 +99,7 @@
             <div class="editor-label">
                 @Html.LabelFor(model => model.IdDetalle)
                 <div class="editor-field">
-                    @Html.DropDownListFor(model => model.IdDetalle, ViewBag.ListaDetalles as SelectList, "Seleccione Detalle", new { style = "width:200px" })
+                    @Html.DropDownListFor(model => model.IdDetalle, ViewBag.ListaDetalles as SelectList, "Seleccione Detalle", new { style = "width:400px" })
                     @Html.ValidationMessageFor(model => model.IdDetalle)
                 </div>
             </div>
@@ -107,7 +107,7 @@
             <div class="editor-label">
                 @Html.LabelFor(model => model.IdAdecuacion)
                 <div class="editor-field">
-                    @Html.DropDownListFor(model => model.IdAdecuacion, ViewBag.ListaAdecuaciones as SelectList, "Seleccione Adecuación", new { style = "width:200px" })
+                    @Html.DropDownListFor(model => model.IdAdecuacion, ViewBag.ListaAdecuaciones as SelectList, "Seleccione Adecuación", new { style = "width:400px" })
                     @Html.ValidationMessageFor(model => model.IdAdecuacion)
                 </div>
             </div>
@@ -115,7 +115,7 @@
             <div class="editor-label">
                 @Html.LabelFor(model => model.IntervaloPrecio)
                 <div class="editor-field">
-                    @Html.DropDownListFor(model => model.IntervaloPrecio, ViewBag.ListaIntervalos as SelectList, "Seleccione Intervalo")
+                    @Html.DropDownListFor(model => model.IntervaloPrecio, ViewBag.ListaIntervalos as SelectList, "Seleccione Intervalo", new { style = "width:200px" })
                     @Html.ValidationMessageFor(model => model.IntervaloPrecio)
                 </div>
             </div>
@@ -131,7 +131,7 @@
             <div class="editor-label">
                 @Html.LabelFor(model => model.Unidades)
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.Unidades)
+                    @Html.EditorFor(model => model.Unidades, new { htmlAttributes = new { @style = "width:50px" }})
                     @Html.ValidationMessageFor(model => model.Unidades)
                 </div>
             </div>

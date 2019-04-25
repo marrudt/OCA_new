@@ -21,7 +21,7 @@ body {
 input,
 select,
 textarea {
-    max-width: 280px;
+    /*max-width: 280px;*/
     height: -1px;
 }
 
@@ -296,4 +296,3 @@ select,
 textarea {
     max-width: 280px;
 }*/
-

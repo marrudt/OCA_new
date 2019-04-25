@@ -12,7 +12,7 @@
 </div>
 <hr />
 <br />
-<table style="width:100%">
+<table style="width:50%">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.nit)
@@ -20,9 +20,9 @@
         <th>
             @Html.DisplayNameFor(model => model.nombres)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.activo)
-        </th>
+        </th>*@
         <th>Acciones</th>
     </tr>
 
@@ -35,13 +35,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.nombres)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.activo)
-            </td>
+            </td>*@
             <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) 
                 @*@Html.ActionLink("Detalles", "Details", new { id = item.Id }) |*@
-                <a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">Eliminar</a>
+                @*<a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">Eliminar</a>*@
             </td>
         </tr>
 

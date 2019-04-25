@@ -12,7 +12,11 @@ namespace Auth.Models
         [Display(Name = "OC")]
         public string OC { get; set; }
 
-        [Display(Name = "Limite Pago")]
+        [Required(ErrorMessage = "Obligatorio")]
+        [Display(Name = "Cliente")]
+        public string nombres { get; set; }
+
+        [Display(Name = "Fecha Limite de Pago")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? fecha_limite_pago { get; set; }
@@ -32,12 +36,12 @@ namespace Auth.Models
         [Display(Name = "Imagen")]
         public string imagen { get; set; }
 
-        [Display(Name = "Envío Carta Pago")]
+        [Display(Name = "Envío Carta Recaudo")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? fecha_envio_carta_pago { get; set; }
 
-        [Display(Name = "Envío 2a Carta Pago")]
+        [Display(Name = "Envío 2a Carta Recaudo")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? fecha_envio_carta_pago_2 { get; set; }
@@ -47,7 +51,7 @@ namespace Auth.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? fecha_radicacion_cuenta { get; set; }
 
-        [Display(Name = "Problable Pago")]
+        [Display(Name = "Fecha Problable de Recaudo")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? fecha_probable_pago { get; set; }

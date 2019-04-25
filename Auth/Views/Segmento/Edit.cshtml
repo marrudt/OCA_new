@@ -1,38 +1,52 @@
 ﻿@model Auth.Models.Segmento
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Edit</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Segmento</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.IdSegmento)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DesSegmento, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DesSegmento, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DesSegmento, "", new { @class = "text-danger" })
-            </div>
+<fieldset>
+    <legend>Editar Segmento</legend>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.IdSegmento)
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IdSegmento, new { htmlAttributes = new { @readonly = "readonly", style = "width:50px", @disabled = "disabled" } })
+            @Html.ValidationMessageFor(model => model.IdSegmento)
         </div>
+    </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+    <div class="editor-label">
+        @Html.LabelFor(model => model.DesSegmento)
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DesSegmento, new { htmlAttributes = new { style = "width:250px" } })
+            @Html.ValidationMessageFor(model => model.DesSegmento)
+        </div>
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Activo)
+        <div class="editor-field">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.Activo)
+                @Html.ValidationMessageFor(model => model.Activo)
             </div>
         </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <p></p>
+    <input type="submit" value="Guardar" class="btn btn-info" />
+    <p></p>
+</fieldset>
+
+        <div>
+            <form method="post" action='@Url.Action("Index", "Segmento")' />
+            <input type="submit" class="btn btn-default" value="Ir al Listado" />
+        </div>
+    }
+
+    

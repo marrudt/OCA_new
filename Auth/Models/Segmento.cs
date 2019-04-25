@@ -9,8 +9,11 @@ namespace Auth.Models
     public class Segmento
     {
         [Key]
-        public int IdSegmento { get; set; }  
-        
+        [Display(Name = "Código")]
+        public int IdSegmento { get; set; }
+
+        [Required(ErrorMessage = "Obligatorio")]
+        [Display(Name = "Descripción Segmento")]
         public string DesSegmento { get; set; }
 
         public bool Activo { get; set; }
