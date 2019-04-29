@@ -15,7 +15,7 @@ namespace Auth.Models
         [Display(Name = "OC")]
         public string OC { get; set; }
 
-        [Display(Name = "Fecha OC Automayor")]
+        [Display(Name = "Fecha Orden Compra Automayor")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime fechaOCAM { get; set; }
@@ -30,15 +30,15 @@ namespace Auth.Models
 
         [DataType(DataType.Currency)]
         [Column(TypeName = "money")]
-        [Display(Name = "Valor OC Automayor")]
+        [Display(Name = "Valor Orden Compra Automayor")]
         public decimal? ValorOCAM { get; set; }
 
         [Required(ErrorMessage = "Obligatorio")]
-        [Display(Name = "OC AM")]
+        [Display(Name = "No. Orden Compra Automayor")]
         public string OCAM { get; set; }
 
         //[Required(ErrorMessage = "Obligatorio")]
-        [Display(Name = "Factura Proveedor")]
+        [Display(Name = "No. Factura Proveedor")]
         public string FactProveedor { get; set; }
 
         [DataType(DataType.Currency)]

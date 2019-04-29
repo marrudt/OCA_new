@@ -15,6 +15,9 @@ namespace Auth.Models
         [Display(Name = "OC")]
         public string OC { get; set; }
 
+        [Display(Name = "Cliente")]
+        public string nit { get; set; }
+
         [Display(Name = "Consulta Comparendos")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]

@@ -47,8 +47,8 @@ namespace Auth.Controllers
         // GET: CarteraOC/Create
         public ActionResult Create()
         {
-            this.ViewBag.ListaOCs = new DBOCAContext().Set<OrdenCompra>().ToList();
-
+            ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "OC", "OC");
+            ViewBag.ListaTerceros = new SelectList(db.TercerosOCAs.OrderBy(x => x.nombres), "nombres", "nombres");            
             return View();
         }
 
@@ -85,7 +85,8 @@ namespace Auth.Controllers
             }
             else
             {
-                this.ViewBag.ListaOcs = new DBOCAContext().Set<OrdenCompra>().ToList();
+                ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "OC", "OC");
+                ViewBag.ListaTerceros = new SelectList(db.TercerosOCAs.OrderBy(x => x.nombres), "nombres", "nombres");                
             }
 
             return View(carteraOC);
@@ -106,7 +107,8 @@ namespace Auth.Controllers
                 return HttpNotFound();
             }
 
-            this.ViewBag.ListaOCs = new DBOCAContext().Set<OrdenCompra>().ToList();
+            ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "OC", "OC");
+            ViewBag.ListaTerceros = new SelectList(db.TercerosOCAs.OrderBy(x => x.nombres), "nombres", "nombres");            
 
             return View(carteraOC);
         }

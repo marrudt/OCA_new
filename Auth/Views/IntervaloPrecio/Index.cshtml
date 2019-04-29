@@ -1,46 +1,49 @@
 ﻿@model IEnumerable<Auth.Models.IntervaloPrecio>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Intervalo Precio";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+    <h3>Intervalo Precio</h3>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<div>
+    @Html.ActionLink("Crear Nuevo", "Create", "IntervaloPrecio", new { @class = "btn btn-info" })
+</div>
+<hr />
+<br />
+<table style="width:50%">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.CodIntervalo)
+            @Html.DisplayNameFor(model => model.Id)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DesIntervalo)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Activo)
-        </th>
-        <th></th>
+        </th>*@
+        <th>Acción</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CodIntervalo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DesIntervalo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Activo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesIntervalo)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Activo)
+            </td>*@
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id })
+                @*@Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+            </td>
+        </tr>
+    }
 
 </table>

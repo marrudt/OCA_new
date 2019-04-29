@@ -1,34 +1,43 @@
 ﻿@model IEnumerable<Auth.Models.Segmento>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Segmentos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h3>Segmentos</h3>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<div>
+    @Html.ActionLink("Crear Nuevo", "Create", "Proveedor", new { @class = "btn btn-info" })
+</div>
+<hr />
+<br />
+<table style="width:50%">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdSegmento)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.DesSegmento)
         </th>
-        <th></th>
+        <th>Acción</th>
     </tr>
 
-@foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdSegmento)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.DesSegmento)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdSegmento }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdSegmento }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdSegmento })
+            @Html.ActionLink("Editar", "Edit", new { id = item.IdSegmento })
+            @*@Html.ActionLink("Details", "Details", new { id=item.IdSegmento }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdSegmento })*@
         </td>
     </tr>
-}
+    }
 
 </table>

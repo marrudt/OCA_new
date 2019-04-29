@@ -1,0 +1,67 @@
+﻿@using Auth.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Iniciar sesión";
+}
+
+<h2>@ViewBag.Title</h2>
+<h4>Use una cuenta local para iniciar sesión</h4>
+@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <hr />    
+        @Html.ValidationSummary(true)
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Email)
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.Email, new { style = "width:250px" })
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Password)
+            <div class="editor-field">
+                @Html.PasswordFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+        </div>
+        <div class="editor-label">
+            <div class="editor-field">
+                @Html.LabelFor(m => m.RememberMe)
+                <div class="checkbox">
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-0 col-md-10">
+                <input type="submit" value="Iniciar sesión" class="btn btn-info" />
+            </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-0 col-md-10">
+                    @Html.ActionLink("Registrar como nuevo usuario", "Register", "LoginViewModel", new { @class = "btn btn-success" })
+                </div>
+                </div>
+
+                @*<p>
+            @Html.ActionLink("Registrar como nuevo usuario", "Register")
+        </p>
+         Habilite esta opción después de habilitar la confirmación de la cuenta para la función de restablecimiento de contraseña
+            <p>
+                @Html.ActionLink("¿Ha olvidado su contraseña?", "ForgotPassword")
+            </p>*@
+                }
+
+                <div class="col-md-4">
+                    <section id="socialLoginForm">
+                        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                    </section>
+                </div>
+
+
+                @section Scripts {
+                    @Scripts.Render("~/bundles/jqueryval")
+                }

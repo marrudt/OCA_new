@@ -16,7 +16,7 @@
         <div class="editor-label">
             @Html.LabelFor(model => model.OC)
             <div class="editor-field">
-                @Html.DropDownList("OC", new SelectList(ViewBag.ListaOCs, "OC", "OC"), "Seleccione OC")
+                @Html.DropDownList("OC", new SelectList(ViewBag.ListaOCs, "OC", "OC"), "Seleccione OC",new { @style = "width:80" })
                 @Html.ValidationMessageFor(model => model.OC)
             </div>
         </div>
@@ -40,7 +40,7 @@
         <div class="editor-label">
             @Html.LabelFor(model => model.funcionario_recibe)
             <div class="editor-field">
-                @Html.EditorFor(model => model.funcionario_recibe, new { htmlAttributes = new { @style = "text-transform:uppercase" } })
+                @Html.EditorFor(model => model.funcionario_recibe, new { htmlAttributes = new { @style = "text-transform:uppercase;width:350px" } })
                 @Html.ValidationMessageFor(model => model.funcionario_recibe)
             </div>
         </div>
@@ -48,7 +48,7 @@
         <div class="editor-label">
             @Html.LabelFor(model => model.entrega_am)
             <div class="editor-field">
-                @Html.EditorFor(model => model.entrega_am, new { htmlAttributes = new { @style = "text-transform:uppercase" } })
+                @Html.EditorFor(model => model.entrega_am, new { htmlAttributes = new { @style = "text-transform:uppercase;width:350px" } })
                 @Html.ValidationMessageFor(model => model.entrega_am)
             </div>
         </div>

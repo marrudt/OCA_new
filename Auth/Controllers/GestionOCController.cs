@@ -44,8 +44,8 @@ namespace Auth.Controllers
         // GET: GestionOC/Create
         public ActionResult Create()
         {
-            ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "Id", "OC");
-            ViewBag.ListaEntidades = new SelectList(db.EntidadMatriculas.OrderBy(x => x.nombres), "nit", "nombres");
+            ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "OC", "OC");
+            ViewBag.ListaEntidades = new SelectList(db.EntidadMatriculas.OrderBy(x => x.nombres), "nombres", "nombres");
 
             return View();
         }
@@ -65,8 +65,8 @@ namespace Auth.Controllers
             }
             else
             {
-                ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "Id", "OC");
-                ViewBag.ListaEntidades = new SelectList(db.EntidadMatriculas.OrderBy(x => x.nombres), "nit", "nombres");
+                ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "OC", "OC");
+                ViewBag.ListaEntidades = new SelectList(db.EntidadMatriculas.OrderBy(x => x.nombres), "nombres", "nombres");
             }
 
             return View(gestionOC);
@@ -85,8 +85,8 @@ namespace Auth.Controllers
                 return HttpNotFound();
             }
 
-            ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "Id", "OC");
-            ViewBag.ListaEntidades = new SelectList(db.EntidadMatriculas.OrderBy(x => x.nombres), "nit", "nombres");
+            ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "OC", "OC");
+            ViewBag.ListaEntidades = new SelectList(db.EntidadMatriculas.OrderBy(x => x.nombres), "nombres", "nombres");
 
             return View(gestionOC);
         }

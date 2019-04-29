@@ -14,7 +14,7 @@ namespace Auth.Controllers
         // GET: Segmento
         public ActionResult Index()
         {
-            return View(db.Segmento.ToList());
+            return View(db.Segmentoes.ToList());
         }
 
         // GET: Segmento/Details/5
@@ -24,7 +24,7 @@ namespace Auth.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Segmento segmento = db.Segmento.Find(id);
+            Segmento segmento = db.Segmentoes.Find(id);
             if (segmento == null)
             {
                 return HttpNotFound();
@@ -47,7 +47,7 @@ namespace Auth.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Segmento.Add(segmento);
+                db.Segmentoes.Add(segmento);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -62,7 +62,7 @@ namespace Auth.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Segmento segmento = db.Segmento.Find(id);
+            Segmento segmento = db.Segmentoes.Find(id);
             if (segmento == null)
             {
                 return HttpNotFound();
@@ -93,7 +93,7 @@ namespace Auth.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Segmento segmento = db.Segmento.Find(id);
+            Segmento segmento = db.Segmentoes.Find(id);
             if (segmento == null)
             {
                 return HttpNotFound();
@@ -106,8 +106,8 @@ namespace Auth.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Segmento segmento = db.Segmento.Find(id);
-            db.Segmento.Remove(segmento);
+            Segmento segmento = db.Segmentoes.Find(id);
+            db.Segmentoes.Remove(segmento);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

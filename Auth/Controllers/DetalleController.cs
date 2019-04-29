@@ -18,7 +18,7 @@ namespace Auth.Controllers
         // GET: Detalle
         public ActionResult Index()
         {
-            return View(db.Detalle.ToList());
+            return View(db.Detalles.ToList());
         }
 
         // GET: Detalle/Details/5
@@ -28,7 +28,7 @@ namespace Auth.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Detalle detalle = db.Detalle.Find(id);
+            Detalle detalle = db.Detalles.Find(id);
             if (detalle == null)
             {
                 return HttpNotFound();
@@ -39,6 +39,8 @@ namespace Auth.Controllers
         // GET: Detalle/Create
         public ActionResult Create()
         {
+            ViewBag.ListaSegmentos = new SelectList(db.Segmentoes.OrderBy(x => x.DesSegmento).Where(m => m.Activo == true), "IdSegmento", "DesSegmento");
+
             return View();
         }
 
@@ -47,13 +49,17 @@ namespace Auth.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdDetalle,DesDetalle,IdSegmento")] Detalle detalle)
+        public ActionResult Create(Detalle detalle)
         {
             if (ModelState.IsValid)
             {
-                db.Detalle.Add(detalle);
+                db.Detalles.Add(detalle);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.ListaSegmentos = new SelectList(db.Segmentoes.OrderBy(x => x.DesSegmento).Where(m => m.Activo == true), "IdSegmento", "DesSegmento");
             }
 
             return View(detalle);
@@ -66,11 +72,13 @@ namespace Auth.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Detalle detalle = db.Detalle.Find(id);
+            Detalle detalle = db.Detalles.Find(id);
             if (detalle == null)
             {
                 return HttpNotFound();
             }
+            ViewBag.ListaSegmentos = new SelectList(db.Segmentoes.OrderBy(x => x.DesSegmento).Where(m => m.Activo == true), "IdSegmento", "DesSegmento");
+
             return View(detalle);
         }
 
@@ -79,7 +87,7 @@ namespace Auth.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdDetalle,DesDetalle,IdSegmento")] Detalle detalle)
+        public ActionResult Edit(Detalle detalle)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +105,7 @@ namespace Auth.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Detalle detalle = db.Detalle.Find(id);
+            Detalle detalle = db.Detalles.Find(id);
             if (detalle == null)
             {
                 return HttpNotFound();
@@ -110,8 +118,8 @@ namespace Auth.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Detalle detalle = db.Detalle.Find(id);
-            db.Detalle.Remove(detalle);
+            Detalle detalle = db.Detalles.Find(id);
+            db.Detalles.Remove(detalle);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

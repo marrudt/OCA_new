@@ -44,9 +44,9 @@ namespace Auth.Controllers
         // GET: ControlMatriculas/Create
         public ActionResult Create()
         {
-            ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "Id", "OC");
+            ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "OC", "OC");
             ViewBag.ListaLineas = new SelectList(db.LineaVh.OrderBy(x => x.descripcion), "Id", "descripcion");
-            ViewBag.ListaTerceros = new SelectList(db.TercerosOCAs.OrderBy(x => x.nombres), "nit", "nombres");
+            ViewBag.ListaTerceros = new SelectList(db.TercerosOCAs.OrderBy(x => x.nombres), "nombres", "nombres");
            
             return View();
         }
@@ -66,9 +66,9 @@ namespace Auth.Controllers
             }
             else
             {
-                ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "Id", "OC");
+                ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "OC", "OC");
                 ViewBag.ListaLineas = new SelectList(db.LineaVh.OrderBy(x => x.descripcion), "Id", "descripcion");
-                ViewBag.ListaTerceros = new SelectList(db.TercerosOCAs.OrderBy(x => x.nombres), "nit", "nombres");
+                ViewBag.ListaTerceros = new SelectList(db.TercerosOCAs.OrderBy(x => x.nombres), "nombres", "nombres");
             }
             return View(controlMatriculas);
         }
@@ -85,9 +85,9 @@ namespace Auth.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "Id", "OC");
+            ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "OC", "OC");
             ViewBag.ListaLineas = new SelectList(db.LineaVh.OrderBy(x => x.descripcion), "Id", "descripcion");
-            ViewBag.ListaTerceros = new SelectList(db.TercerosOCAs.OrderBy(x => x.nombres), "nit", "nombres");
+            ViewBag.ListaTerceros = new SelectList(db.TercerosOCAs.OrderBy(x => x.nombres), "nombres", "nombres");
 
             return View(controlMatriculas);
         }

@@ -1,28 +1,37 @@
 ﻿@model IEnumerable<Auth.Models.Adecuacion>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Adecuación";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h3>Adecuación</h3>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<div>
+    @Html.ActionLink("Crear Nuevo", "Create", "Adecuacion", new { @class = "btn btn-info" })
+</div>
+<hr />
+<br />
+<table style="width:50%">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdAdecuacion)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.DesAdecuacion)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IdDetalle)
         </th>
-        <th></th>
+        <th>Acción</th>
     </tr>
 
-@foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdAdecuacion)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.DesAdecuacion)
         </td>
@@ -30,11 +39,11 @@
             @Html.DisplayFor(modelItem => item.IdDetalle)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdAdecuacion }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdAdecuacion }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdAdecuacion })
+            @Html.ActionLink("Editar", "Edit", new { id = item.IdAdecuacion })
+            @*@Html.ActionLink("Details", "Details", new { id=item.IdAdecuacion }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdAdecuacion })*@
         </td>
     </tr>
-}
+    }
 
 </table>

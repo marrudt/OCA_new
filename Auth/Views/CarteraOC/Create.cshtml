@@ -17,8 +17,16 @@
             <div class="editor-label">
                 @Html.LabelFor(model => model.OC)
                 <div class="editor-field">
-                    @Html.DropDownList("OC", new SelectList(ViewBag.ListaOCs, "OC", "OC"), "Seleccione OC")
+                    @Html.DropDownListFor(model => model.OC, ViewBag.ListaOCs as SelectList, "Seleccione OC",new { @style = "width:80px" })
                     @Html.ValidationMessageFor(model => model.OC)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.nombres)
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.nombres, ViewBag.ListaTerceros as SelectList, "Seleccione Cliente", new { @style = "width:450px" })
+                    @Html.ValidationMessageFor(model => model.nombres)
                 </div>
             </div>
 

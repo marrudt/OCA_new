@@ -29,15 +29,15 @@ namespace Auth.Controllers
         // GET: Evento/Create
         public ActionResult Create()
         {
-            ViewBag.ListaSegmentos = new SelectList(db.Segmento.OrderBy(x => x.DesSegmento).Where(m => m.Activo == true), "IdSegmento", "DesSegmento");
-            ViewBag.ListaDetalles = new SelectList(db.Detalle.OrderBy(x => x.DesDetalle).Where(m => m.Activo == true), "IdDetalle", "DesDetalle");
-            ViewBag.ListaAdecuaciones = new SelectList(db.Adecuacion.OrderBy(x => x.DesAdecuacion).Where(m => m.Activo == true), "IdAdecuacion", "DesAdecuacion");
+            ViewBag.ListaSegmentos = new SelectList(db.Segmentoes.OrderBy(x => x.DesSegmento).Where(m => m.Activo == true), "IdSegmento", "DesSegmento");
+            ViewBag.ListaDetalles = new SelectList(db.Detalles.OrderBy(x => x.DesDetalle).Where(m => m.Activo == true), "IdDetalle", "DesDetalle");
+            ViewBag.ListaAdecuaciones = new SelectList(db.Adecuacions.OrderBy(x => x.DesAdecuacion).Where(m => m.Activo == true), "IdAdecuacion", "DesAdecuacion");
             ViewBag.ListaIntervalos = new SelectList(db.IntervaloPrecios.OrderBy(x => x.DesIntervalo).Where(m => m.Activo == true), "CodIntervalo", "Desintervalo");
             ViewBag.ListaVigencias = new SelectList(db.VigenciaSoats.OrderBy(x => x.DesVigencia).Where(m => m.Activo == true), "CodVigencia", "DesVigencia");
             ViewBag.ListaMttos = new SelectList(db.MttoPreventivos.OrderBy(x => x.DesMtto).Where(m => m.Activo == true), "CodMtto", "DesMtto");
             ViewBag.ListaEventos = new SelectList(db.Eventoes.OrderBy(x => x.Numero), "Id", "Numero");
             ViewBag.ListaCiudades = new SelectList(db.CiudadOCA.OrderBy(x => x.Descripcion), "Codigo", "Descripcion");
-            ViewBag.ListaTerceros = new SelectList(db.TercerosOCAs.OrderBy(x => x.nombres), "nit", "nombres");
+            ViewBag.ListaTerceros = new SelectList(db.TercerosOCAs.OrderBy(x => x.nombres), "nombres", "nombres");
             ViewBag.ListaTransmision = new SelectList(db.Transmisiones.OrderBy(x => x.DesTransmision).Where(m => m.Activo == true), "CodTransmision", "DesTransmision");
 
             return View();
@@ -55,18 +55,15 @@ namespace Auth.Controllers
             }
             else
             {
-                ViewBag.ListaSegmentos = new SelectList(db.Segmento.OrderBy(x => x.DesSegmento).Where(m => m.Activo == true), "IdSegmento", "DesSegmento");
-                ViewBag.ListaDetalles = new SelectList(db.Detalle.OrderBy(x => x.DesDetalle).Where(m => m.Activo == true), "IdDetalle", "DesDetalle");
-                ViewBag.ListaAdecuaciones = new SelectList(db.Adecuacion.OrderBy(x => x.DesAdecuacion).Where(m => m.Activo == true), "IdAdecuacion", "DesAdecuacion");
-                ViewBag.ddlSegmento = new SelectList(db.Segmento.OrderBy(x => x.DesSegmento), "IdSegmento", "DesSegmento");
-                ViewBag.ddlDetalle = new SelectList(db.Detalle.OrderBy(x => x.DesDetalle), "IdDetalle", "DesCilindraje");
-                ViewBag.ddlAdecuacion = new SelectList(db.Adecuacion.OrderBy(x => x.DesAdecuacion), "Id", "DesAdecuacion");
+                ViewBag.ListaSegmentos = new SelectList(db.Segmentoes.OrderBy(x => x.DesSegmento).Where(m => m.Activo == true), "IdSegmento", "DesSegmento");
+                ViewBag.ListaDetalles = new SelectList(db.Detalles.OrderBy(x => x.DesDetalle).Where(m => m.Activo == true), "IdDetalle", "DesDetalle");
+                ViewBag.ListaAdecuaciones = new SelectList(db.Adecuacions.OrderBy(x => x.DesAdecuacion).Where(m => m.Activo == true), "IdAdecuacion", "DesAdecuacion");
                 ViewBag.ListaIntervalos = new SelectList(db.IntervaloPrecios.OrderBy(x => x.DesIntervalo).Where(m => m.Activo == true), "CodIntervalo", "Desintervalo");
                 ViewBag.ListaVigencias = new SelectList(db.VigenciaSoats.OrderBy(x => x.DesVigencia).Where(m => m.Activo == true), "CodVigencia", "DesVigencia");
                 ViewBag.ListaMttos = new SelectList(db.MttoPreventivos.OrderBy(x => x.DesMtto).Where(m => m.Activo == true), "CodMtto", "DesMtto");
                 ViewBag.ListaEventos = new SelectList(db.Eventoes.OrderBy(x => x.Numero), "Id", "Numero");
                 ViewBag.ListaCiudades = new SelectList(db.CiudadOCA.OrderBy(x => x.Descripcion), "Codigo", "Descripcion");
-                ViewBag.ListaTerceros = new SelectList(db.TercerosOCAs.OrderBy(x => x.nombres), "nit", "nombres");
+                ViewBag.ListaTerceros = new SelectList(db.TercerosOCAs.OrderBy(x => x.nombres), "nombres", "nombres");
                 ViewBag.ListaTransmision = new SelectList(db.Transmisiones.OrderBy(x => x.DesTransmision).Where(m => m.Activo == true), "CodTransmision", "DesTransmision");
             }
 
@@ -85,15 +82,15 @@ namespace Auth.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ListaSegmentos = new SelectList(db.Segmento.OrderBy(x => x.DesSegmento).Where(m => m.Activo == true), "IdSegmento", "DesSegmento");
-            ViewBag.ListaDetalles = new SelectList(db.Detalle.OrderBy(x => x.DesDetalle).Where(m => m.Activo == true), "IdDetalle", "DesDetalle");
-            ViewBag.ListaAdecuaciones = new SelectList(db.Adecuacion.OrderBy(x => x.DesAdecuacion).Where(m => m.Activo == true), "IdAdecuacion", "DesAdecuacion");
+            ViewBag.ListaSegmentos = new SelectList(db.Segmentoes.OrderBy(x => x.DesSegmento).Where(m => m.Activo == true), "IdSegmento", "DesSegmento");
+            ViewBag.ListaDetalles = new SelectList(db.Detalles.OrderBy(x => x.DesDetalle).Where(m => m.Activo == true), "IdDetalle", "DesDetalle");
+            ViewBag.ListaAdecuaciones = new SelectList(db.Adecuacions.OrderBy(x => x.DesAdecuacion).Where(m => m.Activo == true), "IdAdecuacion", "DesAdecuacion");
             ViewBag.ListaIntervalos = new SelectList(db.IntervaloPrecios.OrderBy(x => x.DesIntervalo).Where(m => m.Activo == true), "CodIntervalo", "Desintervalo");
             ViewBag.ListaVigencias = new SelectList(db.VigenciaSoats.OrderBy(x => x.DesVigencia).Where(m => m.Activo == true), "CodVigencia", "DesVigencia");
             ViewBag.ListaMttos = new SelectList(db.MttoPreventivos.OrderBy(x => x.DesMtto).Where(m => m.Activo == true), "CodMtto", "DesMtto");
             ViewBag.ListaEventos = new SelectList(db.Eventoes.OrderBy(x => x.Numero), "Id", "Numero");
             ViewBag.ListaCiudades = new SelectList(db.CiudadOCA.OrderBy(x => x.Descripcion), "Codigo", "Descripcion");
-            ViewBag.ListaTerceros = new SelectList(db.TercerosOCAs.OrderBy(x => x.nombres), "nit", "nombres");
+            ViewBag.ListaTerceros = new SelectList(db.TercerosOCAs.OrderBy(x => x.nombres), "nombres", "nombres");
             ViewBag.ListaTransmision = new SelectList(db.Transmisiones.OrderBy(x => x.DesTransmision).Where(m => m.Activo == true), "CodTransmision", "DesTransmision");
 
             return View(evento);

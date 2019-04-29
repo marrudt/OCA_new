@@ -12,12 +12,20 @@
     <fieldset>
         <legend>Editar Gestión Orden de Compra</legend>
 
-        <div style="width:30%; float:left;">
+        <div style="width:40%; float:left;">
             <div class="editor-label">
                 @Html.LabelFor(model => model.OC)
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.OC, new { htmlAttributes = new { @readonly = "readonly" } })
+                    @Html.EditorFor(model => model.OC, new { htmlAttributes = new { @readonly = "readonly", @style = "width:60px" } })
                     @Html.ValidationMessageFor(model => model.OC)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.nit)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.nit, new { htmlAttributes = new { @readonly = "readonly", @style = "width:450px" } })
+                    @Html.ValidationMessageFor(model => model.nit)
                 </div>
             </div>
 
@@ -54,7 +62,7 @@
             </div>
         </div>
 
-        <div style="width:70%; float:left;">
+        <div style="width:60%; float:left;">
             <div class="editor-label">
                 @Html.LabelFor(model => model.envio_carta_comparendos)
                 <div class="editor-field">
@@ -114,7 +122,7 @@
             <div class="editor-label">
                 @Html.LabelFor(model => model.notas)
             </div>
-            <div class="editor-field" style="width: 200%; height: 75%;">
+            <div class="editor-field" style="width: 100%; height: 75%;">
                 @Html.EditorFor(model => model.notas)
                 @Html.ValidationMessageFor(model => model.notas)
             </div>

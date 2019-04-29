@@ -11,27 +11,27 @@
 
     <fieldset>
         <legend>Crear Nueva Orden de Compra</legend>
-        <div style="width:25%; float:left;">
+        <div style="width:15%; float:left;">
             <div class="editor-label">
                 @Html.LabelFor(model => model.OC)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.OC)
+                @Html.EditorFor(model => model.OC, new { htmlAttributes = new { @style = "text-transform:uppercase;width:80px" } })
                 @Html.ValidationMessageFor(model => model.OC)
             </div>
         </div>
 
-        <div style="width:30%; float:left;">
+        <div style="width:50%; float:left;">
             <div class="editor-label">
                 @Html.LabelFor(model => model.nit)
             </div>                        
             <div class="editor-field">
-                @Html.DropDownListFor(model => model.nit, ViewBag.ListaTerceros as SelectList, "Seleccione Cliente")                
+                @Html.DropDownListFor(model => model.nit, ViewBag.ListaTerceros as SelectList, "Seleccione Cliente", new { @style = "width:450px"} )                
                 @Html.ValidationMessageFor(model => model.nit)
             </div>
         </div>
 
-        <div style="width:20%; float:left;">
+        <div style="width:17%; float:left;">
             <div class="editor-label">
                 @Html.LabelFor(model => model.fecha_emision)
             </div>
@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <div style="width:25%; float:left;">
+        <div style="width:18%; float:left;">
             <div class="editor-label">
                 @Html.LabelFor(model => model.fecha_vencimiento)
             </div>
@@ -59,8 +59,8 @@
             <div class="editor-label">
                 @Html.LabelFor(model => model.ordenador_gasto)
             </div>
-            <div class="editor-field w-100" style="width: 100%;">
-                @Html.EditorFor(model => model.ordenador_gasto, new { htmlAttributes = new { @style = "text-transform:uppercase" } })
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ordenador_gasto, new { htmlAttributes = new { @style = "text-transform:uppercase;width:300px"} })
                 @Html.ValidationMessageFor(model => model.ordenador_gasto)
             </div>
             <p></p>
@@ -69,7 +69,7 @@
                 @Html.LabelFor(model => model.supervisor)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.supervisor, new { htmlAttributes = new { @style = "text-transform:uppercase" } })
+                @Html.EditorFor(model => model.supervisor, new { htmlAttributes = new { @style = "text-transform:uppercase;width:300px"} })
                 @Html.ValidationMessageFor(model => model.supervisor)
             </div>
             <p></p>
@@ -78,7 +78,7 @@
                 @Html.LabelFor(model => model.telefono_1)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.telefono_1)
+                @Html.EditorFor(model => model.telefono_1, new { htmlAttributes = new { @style = "width:80px"} })
                 @Html.ValidationMessageFor(model => model.telefono_1)
             </div>
             <p></p>
@@ -87,7 +87,7 @@
                 @Html.LabelFor(model => model.ext_1)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.ext_1)
+                @Html.EditorFor(model => model.ext_1, new { htmlAttributes = new { @style = "width:30px"} })
                 @Html.ValidationMessageFor(model => model.ext_1)
             </div>
             <p></p>
@@ -96,7 +96,7 @@
                 @Html.LabelFor(model => model.telefono_2)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.telefono_2)
+                @Html.EditorFor(model => model.telefono_2, new { htmlAttributes = new { @style = "width:80px"} })
                 @Html.ValidationMessageFor(model => model.telefono_2)
             </div>
             <p></p>
@@ -105,7 +105,7 @@
                 @Html.LabelFor(model => model.ext_2)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.ext_2)
+                @Html.EditorFor(model => model.ext_2, new { htmlAttributes = new { @style = "width:30px"} })
                 @Html.ValidationMessageFor(model => model.ext_2)
             </div>
             <p></p>
@@ -114,7 +114,7 @@
                 @Html.LabelFor(model => model.celular)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.celular)
+                @Html.EditorFor(model => model.celular, new { htmlAttributes = new { @style = "width:80px"} })
                 @Html.ValidationMessageFor(model => model.celular)
             </div>
             <p></p>
@@ -123,7 +123,7 @@
                 @Html.LabelFor(model => model.mail_ordenador_gasto)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.mail_ordenador_gasto)
+                @Html.EditorFor(model => model.mail_ordenador_gasto, new { htmlAttributes = new { @style = "text-transform:lowercase;width:300px"} })
                 @Html.ValidationMessageFor(model => model.mail_ordenador_gasto)
             </div>
             <p></p>
@@ -132,7 +132,7 @@
                 @Html.LabelFor(model => model.mail_supervisor)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.mail_supervisor)
+                @Html.EditorFor(model => model.mail_supervisor, new { htmlAttributes = new { @style = "text-transform:lowercase;width:300px"} })
                 @Html.ValidationMessageFor(model => model.mail_supervisor)
             </div>
 
@@ -151,7 +151,7 @@
                 @Html.LabelFor(model => model.numero_AZ)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.numero_AZ)
+                @Html.EditorFor(model => model.numero_AZ, new { htmlAttributes = new { @style = "width:50px"} })
                 @Html.ValidationMessageFor(model => model.numero_AZ)
             </div>
             <p></p>

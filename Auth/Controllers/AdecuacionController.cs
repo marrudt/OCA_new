@@ -18,7 +18,7 @@ namespace Auth.Controllers
         // GET: Adecuacion
         public ActionResult Index()
         {
-            return View(db.Adecuacion.ToList());
+            return View(db.Adecuacions.ToList());
         }
 
         // GET: Adecuacion/Details/5
@@ -28,7 +28,7 @@ namespace Auth.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Adecuacion adecuacion = db.Adecuacion.Find(id);
+            Adecuacion adecuacion = db.Adecuacions.Find(id);
             if (adecuacion == null)
             {
                 return HttpNotFound();
@@ -39,6 +39,7 @@ namespace Auth.Controllers
         // GET: Adecuacion/Create
         public ActionResult Create()
         {
+            ViewBag.ListaDetalles = new SelectList(db.Detalles.OrderBy(x => x.IdSegmento).Where(m => m.Activo == true && m.IdSegmento == 18), "IdDetalle", "DesDetalle");
             return View();
         }
 
@@ -47,13 +48,17 @@ namespace Auth.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdAdecuacion,DesAdecuacion,IdDetalle")] Adecuacion adecuacion)
+        public ActionResult Create(Adecuacion adecuacion)
         {
             if (ModelState.IsValid)
             {
-                db.Adecuacion.Add(adecuacion);
+                db.Adecuacions.Add(adecuacion);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create");
+            }
+            else
+            {
+                ViewBag.ListaDetalles = new SelectList(db.Detalles.OrderBy(x => x.IdSegmento).Where(m => m.Activo == true && m.IdSegmento == 18), "IdDetalle", "DesDetalle");
             }
 
             return View(adecuacion);
@@ -66,11 +71,13 @@ namespace Auth.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Adecuacion adecuacion = db.Adecuacion.Find(id);
+            Adecuacion adecuacion = db.Adecuacions.Find(id);
             if (adecuacion == null)
             {
                 return HttpNotFound();
             }
+            ViewBag.ListaDetalles = new SelectList(db.Detalles.OrderBy(x => x.IdSegmento).Where(m => m.Activo == true && m.IdSegmento == 18), "IdDetalle", "DesDetalle");
+
             return View(adecuacion);
         }
 
@@ -79,13 +86,13 @@ namespace Auth.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdAdecuacion,DesAdecuacion,IdDetalle")] Adecuacion adecuacion)
+        public ActionResult Edit(Adecuacion adecuacion)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(adecuacion).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Edit");
             }
             return View(adecuacion);
         }
@@ -97,7 +104,7 @@ namespace Auth.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Adecuacion adecuacion = db.Adecuacion.Find(id);
+            Adecuacion adecuacion = db.Adecuacions.Find(id);
             if (adecuacion == null)
             {
                 return HttpNotFound();
@@ -110,8 +117,8 @@ namespace Auth.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Adecuacion adecuacion = db.Adecuacion.Find(id);
-            db.Adecuacion.Remove(adecuacion);
+            Adecuacion adecuacion = db.Adecuacions.Find(id);
+            db.Adecuacions.Remove(adecuacion);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
