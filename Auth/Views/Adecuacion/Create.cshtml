@@ -1,7 +1,7 @@
 ﻿@model Auth.Models.Adecuacion
 
 @{
-    ViewBag.Title = "Crear Detalle Adecuación";
+    ViewBag.Title = "Crear Adecuación";
 }
 
 @using (Html.BeginForm())
@@ -10,7 +10,7 @@
     @Html.ValidationSummary(true)
 
 <fieldset>
-    <legend>Crear Detalle Adecuación</legend>
+    <legend>Crear Adecuación</legend>
     @Html.ValidationSummary(true)
     <div class="editor-label">
         @Html.LabelFor(model => model.IdAdecuacion)

@@ -19,7 +19,7 @@
                 @Html.LabelFor(model => model.clase)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.clase)
+                @Html.EditorFor(model => model.clase, new { htmlAttributes = new { @style = "text-transform:uppercase;width:50px", } })
                 @Html.ValidationMessageFor(model => model.clase)
             </div>
         </div>
@@ -28,7 +28,7 @@
                 @Html.LabelFor(model => model.descripcion)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.descripcion)
+                @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @style = "text-transform:uppercase;width:200px", } })
                 @Html.ValidationMessageFor(model => model.descripcion)
             </div>
         </div>

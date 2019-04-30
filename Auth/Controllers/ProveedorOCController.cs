@@ -48,7 +48,7 @@ namespace Auth.Controllers
         {
             ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "OC", "OC");
             ViewBag.ListaProveedores = new SelectList(db.Proveedors.OrderBy(x => x.nombres), "nombres", "nombres");
-            ViewBag.ListaReferencias = new SelectList(db.ReferenciasOC.OrderBy(x => x.descripcion), "codigo", "descripcion");
+            ViewBag.ListaReferencias = new SelectList(db.ReferenciasOC.OrderBy(x => x.descripcion), "descripcion", "descripcion");
             
             return View();
         }
@@ -88,7 +88,7 @@ namespace Auth.Controllers
             {
                 ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "OC", "OC");
                 ViewBag.ListaProveedores = new SelectList(db.Proveedors.OrderBy(x => x.nombres), "nombres", "nombres");
-                ViewBag.ListaReferencias = new SelectList(db.ReferenciasOC.OrderBy(x => x.descripcion), "codigo", "descripcion");
+                ViewBag.ListaReferencias = new SelectList(db.ReferenciasOC.OrderBy(x => x.descripcion), "descripcion", "descripcion");
             }
 
             return View(proveedorOC);
@@ -111,7 +111,7 @@ namespace Auth.Controllers
 
             ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "OC", "OC");
             ViewBag.ListaProveedores = new SelectList(db.Proveedors.OrderBy(x => x.nombres), "nombres", "nombres");
-            ViewBag.ListaReferencias = new SelectList(db.ReferenciasOC.OrderBy(x => x.descripcion), "codigo", "descripcion");
+            ViewBag.ListaReferencias = new SelectList(db.ReferenciasOC.OrderBy(x => x.descripcion), "descripcion", "descripcion");
 
             return View(proveedorOC);
         }
