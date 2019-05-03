@@ -8201,3 +8201,12 @@ button.close {
     }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+
+img.imgcenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+}
+

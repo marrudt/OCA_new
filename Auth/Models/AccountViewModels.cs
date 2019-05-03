@@ -64,6 +64,8 @@ namespace Auth.Models
 
     public class RegisterViewModel
     {
+        public int Id { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Correo electrónico")]

@@ -1,9 +1,10 @@
 ﻿using Auth.Models;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 
 namespace Auth.Repositorio
 {
-    public class DBOCAContext : DbContext
+    public partial class DBOCAContext : DbContext
     {
         public DBOCAContext()
            : base("name=DBOCAContext")
@@ -33,5 +34,7 @@ namespace Auth.Repositorio
         public DbSet<CiudadOCA> CiudadOCA { get; set; }
         public DbSet<Segmento> Segmentoes { get; set; }
         public DbSet<Detalle> Detalles { get; set; }
-        public DbSet<Adecuacion> Adecuacions { get; set; }    }
-} 
+        public DbSet<Adecuacion> Adecuacions { get; set; }
+        public DbSet<RegisterViewModel> Registro { get; set; }
+    }
+}
