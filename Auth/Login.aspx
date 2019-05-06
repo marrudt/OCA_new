@@ -15,30 +15,34 @@
 <body style="font-family: Segoe UI, Verdana, Helvetica, Sans-Serif; font-size: small">
     <form id="form1" runat="server">
         <asp:Image ImageUrl="Images/Logo Oca_1.png" Width="280" Height="180" alt="imgf" runat="server" ID="OCA" class="imgcenter" />
-        <h3 style="text-align: left">Inicio de sesión</h3>
+        <h4 style="text-align: left"><b>Inicio de sesión</b></h4>
         <hr />
         <asp:PlaceHolder runat="server" ID="LoginStatus" Visible="false"></asp:PlaceHolder>
         <asp:PlaceHolder runat="server" ID="LoginForm" Visible="false">
             <div>
                 <h4 style="text-align: left">Usuario</h4>
-                <asp:Label runat="server" AssociatedControlID="UserName"></asp:Label>
-                <asp:TextBox runat="server" ID="UserName"></asp:TextBox>
+                <asp:Label runat="server" AssociatedControlID="UserName" autocomplete="on"></asp:Label>
+                <asp:TextBox runat="server" ID="UserName" autocomplete="off"></asp:TextBox>
             </div>
             <div>
                 <h4 style="text-align: left">Contraseña</h4>
                 <asp:Label runat="server" Style="text-align: center" AssociatedControlID="Password"></asp:Label>
-                <asp:TextBox runat="server" ID="Password" TextMode="Password"></asp:TextBox>
+                <asp:TextBox runat="server" ID="Password" TextMode="Password" autocomplete="off"></asp:TextBox>
             </div>
-                <div>
-                    <div class="editor-field">
-                        <asp:Button runat="server" OnClick="SignIn" Text="Entrar" Class="btn btn-success"></asp:Button>
-                    </div>
+            <div>
+                <div class="editor-field">
+                    <asp:Button runat="server" OnClick="SignIn" Text="Entrar" Class="btn btn-success"></asp:Button>
+                    <%--<button class="btn btn-primary" role="link" onclick="CreateUser_Click">Registrar</button>--%>
+                    <a class="btn btn-primary" href="http://localhost:62536/registrar.aspx">Registrar</a>
+                </div>
             </div>
-        </asp:PlaceHolder>
+        </asp:PlaceHolder>     
+
         <asp:PlaceHolder runat="server" ID="LogoutButton" Visible="false">
             <div>
                 <div>
-                    <asp:Button runat="server" Style="margin: auto" OnClick="SignOut" Text="Salir" Class="center-block btn btn-danger" />
+                    <%--<h4 style="text-align: left">Usuario registrado correctamente</h4>--%>
+                    <asp:Button runat="server" Style="margin: auto" OnClick="SignOut" Text="Iniciar Sesión" Class="btn btn-success" />
                 </div>
 
             </div>
