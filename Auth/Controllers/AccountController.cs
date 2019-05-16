@@ -72,7 +72,7 @@ namespace Auth.Controllers
 
             // No cuenta los errores de inicio de sesión para el bloqueo de la cuenta
             // Para permitir que los errores de contraseña desencadenen el bloqueo de la cuenta, cambie a shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.NombreUsuario, model.Clave, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -419,6 +419,24 @@ namespace Auth.Controllers
 
             base.Dispose(disposing);
         }
+
+        //[HttpGet]
+        //public ActionResult RoleCreate()
+        //{
+        //    return View(new Rol());
+        //}
+
+        //[HttpPost]
+        //public ActionResult RoleCreate(Role role)
+        //{
+        //    return View(role);
+        //}
+
+        [HttpGet]
+        public ActionResult DisplayAllRoles()
+        {
+            return View();
+        }                
 
         #region Asistentes
         // Se usa para la protección XSRF al agregar inicios de sesión externos

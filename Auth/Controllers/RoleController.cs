@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using Auth.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity;
+using Auth.Repositorio;
+using System.Web.Security;
 
 namespace Auth.Controllers
 {
@@ -62,10 +64,10 @@ namespace Auth.Controllers
             }
             return false;
         }
-        /// <summary> 
-        /// Create  a New role 
-        /// </summary> 
-        /// <returns></returns> 
+        // <summary> 
+        // Create a New role 
+        // </summary> 
+        // <returns></returns> 
         public ActionResult Create()
         {
             if (User.Identity.IsAuthenticated)
@@ -110,5 +112,41 @@ namespace Auth.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        //[HttpPost]
+        //public ActionResult RoleCreate(Role role)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        if (Roles.RoleExists(role.Nombre))
+        //        {
+        //            ModelState.AddModelError("Error", "El Rol ya existe");
+        //            return View(role);
+        //        }
+        //        else
+        //        {
+        //            Roles.CreateRole(role.Nombre);
+        //            return RedirectToAction("DisplayAllRoles", "Account");
+        //        }
+        //    }
+        //    else
+        //    {
+        //        ModelState.AddModelError("Error", "Por favor, ingrese un Usuario y una Contraseña");
+        //    }
+        //    return View(role);
+        //}
+
+        //[HttpGet]
+        //public ActionResult DisplayAllRoles()
+        //{
+        //    IEnumerable<Role> ListRoles;
+        //    using (DBOCAContext db = new DBOCAContext())
+        //    {
+        //        ListRoles = db.Roles.ToList();
+        //    }
+        //    return View(ListRoles);
+        //}
+
+
     }
 }

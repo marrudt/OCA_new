@@ -36,5 +36,6 @@ namespace Auth.Repositorio
         public DbSet<Detalle> Detalles { get; set; }
         public DbSet<Adecuacion> Adecuacions { get; set; }
         public DbSet<RegisterViewModel> Registro { get; set; }
+        public DbSet<Usuario> Usuarios_OCA { get; set; }        
     }
 }

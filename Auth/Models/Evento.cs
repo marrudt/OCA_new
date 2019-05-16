@@ -11,7 +11,7 @@ namespace Auth.Models
         public string Numero { get; set; }
 
         [Required(ErrorMessage = "Obligatorio")]
-        [Display(Name = "Nit Cliente")]
+        [Display(Name = "Cliente")]
         public string Nit { get; set; }
 
         [Required(ErrorMessage = "Obligatorio")]

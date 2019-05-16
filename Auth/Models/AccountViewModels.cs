@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Auth.Models
 {
@@ -49,14 +50,14 @@ namespace Auth.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Correo electrónico")]
+        [Display(Name = "Usuario")]
         [EmailAddress]
-        public string Email { get; set; }
+        public string NombreUsuario { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]
-        public string Password { get; set; }
+        public string Clave { get; set; }
 
         [Display(Name = "¿Recordar cuenta?")]
         public bool RememberMe { get; set; }
@@ -111,4 +112,17 @@ namespace Auth.Models
         [Display(Name = "Correo electrónico")]
         public string Email { get; set; }
     }
+
+    //[Table("webpages_Roles")]
+    //public class Role
+    //{
+    //    [Key]
+    //    [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+    //    public int RoleId { get; set; }
+
+    //    [Display(Name = "Nombre Rol")]
+    //    [Required(ErrorMessage = "Ingrese un rol")]
+    //    [StringLength(100, ErrorMessage = "El {0} debe tener al menos {2} caracteres de longitud.", MinimumLength = 3)]
+    //    public string RoleName { get; set; }
+    //}
 }
