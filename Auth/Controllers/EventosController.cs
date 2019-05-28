@@ -36,7 +36,7 @@ namespace Auth.Controllers
             ViewBag.ListaVigencias = new SelectList(db.VigenciaSoats.OrderBy(x => x.DesVigencia).Where(m => m.Activo == true), "CodVigencia", "DesVigencia");
             ViewBag.ListaMttos = new SelectList(db.MttoPreventivos.OrderBy(x => x.DesMtto).Where(m => m.Activo == true), "CodMtto", "DesMtto");
             ViewBag.ListaEventos = new SelectList(db.Eventoes.OrderBy(x => x.Numero), "Id", "Numero");
-            ViewBag.ListaCiudades = new SelectList(db.CiudadOCA.OrderBy(x => x.Descripcion), "Codigo", "Descripcion");
+            ViewBag.ListaCiudades = new SelectList(db.CiudadOCA.OrderBy(x => x.Descripcion), "Descripcion", "Descripcion");
             ViewBag.ListaTerceros = new SelectList(db.TercerosOCAs.OrderBy(x => x.nombres), "nombres", "nombres");
             ViewBag.ListaTransmision = new SelectList(db.Transmisiones.OrderBy(x => x.DesTransmision).Where(m => m.Activo == true), "CodTransmision", "DesTransmision");
 
@@ -62,7 +62,7 @@ namespace Auth.Controllers
                 ViewBag.ListaVigencias = new SelectList(db.VigenciaSoats.OrderBy(x => x.DesVigencia).Where(m => m.Activo == true), "CodVigencia", "DesVigencia");
                 ViewBag.ListaMttos = new SelectList(db.MttoPreventivos.OrderBy(x => x.DesMtto).Where(m => m.Activo == true), "CodMtto", "DesMtto");
                 ViewBag.ListaEventos = new SelectList(db.Eventoes.OrderBy(x => x.Numero), "Id", "Numero");
-                ViewBag.ListaCiudades = new SelectList(db.CiudadOCA.OrderBy(x => x.Descripcion), "Codigo", "Descripcion");
+                ViewBag.ListaCiudades = new SelectList(db.CiudadOCA.OrderBy(x => x.Descripcion), "Descripcion", "Descripcion");
                 ViewBag.ListaTerceros = new SelectList(db.TercerosOCAs.OrderBy(x => x.nombres), "nombres", "nombres");
                 ViewBag.ListaTransmision = new SelectList(db.Transmisiones.OrderBy(x => x.DesTransmision).Where(m => m.Activo == true), "CodTransmision", "DesTransmision");
             }
@@ -89,7 +89,7 @@ namespace Auth.Controllers
             ViewBag.ListaVigencias = new SelectList(db.VigenciaSoats.OrderBy(x => x.DesVigencia).Where(m => m.Activo == true), "CodVigencia", "DesVigencia");
             ViewBag.ListaMttos = new SelectList(db.MttoPreventivos.OrderBy(x => x.DesMtto).Where(m => m.Activo == true), "CodMtto", "DesMtto");
             ViewBag.ListaEventos = new SelectList(db.Eventoes.OrderBy(x => x.Numero), "Id", "Numero");
-            ViewBag.ListaCiudades = new SelectList(db.CiudadOCA.OrderBy(x => x.Descripcion), "Codigo", "Descripcion");
+            ViewBag.ListaCiudades = new SelectList(db.CiudadOCA.OrderBy(x => x.Descripcion), "Descripcion", "Descripcion");
             ViewBag.ListaTerceros = new SelectList(db.TercerosOCAs.OrderBy(x => x.nombres), "nombres", "nombres");
             ViewBag.ListaTransmision = new SelectList(db.Transmisiones.OrderBy(x => x.DesTransmision).Where(m => m.Activo == true), "CodTransmision", "DesTransmision");
 

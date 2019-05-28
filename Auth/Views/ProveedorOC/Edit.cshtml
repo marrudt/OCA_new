@@ -23,7 +23,7 @@
             <div class="editor-label">
                 @Html.LabelFor(model => model.NitProveedor)
                 <div class="editor-field">
-                    @Html.DropDownListFor(model => model.NitProveedor, ViewBag.ListaProveedores as SelectList, "Seleccione Proveedor")
+                    @Html.DropDownListFor(model => model.NitProveedor, ViewBag.ListaProveedores as SelectList, "Seleccione Proveedor", new { required="required" })
                     @Html.ValidationMessageFor(model => model.NitProveedor)
                 </div>
             </div>
@@ -31,7 +31,7 @@
             <div class="editor-label">
                 @Html.LabelFor(model => model.IdReferencia)
                 <div class="editor-field">
-                    @Html.DropDownListFor(model => model.IdReferencia, ViewBag.ListaReferencias as SelectList, "Seleccione Concepto")
+                    @Html.DropDownListFor(model => model.IdReferencia, ViewBag.ListaReferencias as SelectList, "Seleccione Concepto", new { required="required" })
                     @Html.ValidationMessageFor(model => model.IdReferencia)
                 </div>
             </div>
@@ -39,7 +39,7 @@
             <div class="editor-label">
                 @Html.LabelFor(model => model.fechaOCAM)
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.fechaOCAM)
+                    @Html.EditorFor(model => model.fechaOCAM, new { htmlAttributes = new { required ="required" }})
                     @Html.ValidationMessageFor(model => model.fechaOCAM)
                 </div>
             </div>
@@ -47,7 +47,7 @@
             <div class="editor-label">
                 @Html.LabelFor(model => model.OCAM)
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.OCAM, new { htmlAttributes = new { @style = "text-transform:uppercase;width:60px" } })
+                    @Html.EditorFor(model => model.OCAM, new { htmlAttributes = new { @style = "text-transform:uppercase;width:60px", required ="required" } })
                     @Html.ValidationMessageFor(model => model.OCAM)
                 </div>
             </div>

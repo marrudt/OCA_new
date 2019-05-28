@@ -29,7 +29,7 @@
                 @Html.LabelFor(model => model.nit)
             </div>
             <div class="editor-field">
-                @Html.DropDownListFor(model => model.nit, ViewBag.ListaTerceros as SelectList, "Seleccione Cliente", new { @style = "width:450px" })
+                @Html.DropDownListFor(model => model.nit, ViewBag.ListaTerceros as SelectList, "Seleccione Cliente", new { @style = "width:450px", required="required" })
                 @Html.ValidationMessageFor(model => model.nit)
             </div>
         </div>
@@ -39,7 +39,7 @@
                 @Html.LabelFor(model => model.fecha_emision)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.fecha_emision)
+                @Html.EditorFor(model => model.fecha_emision, new { htmlAttributes = new { required ="required" }})
                 @Html.ValidationMessageFor(model => model.fecha_emision)
             </div>
         </div>
@@ -49,7 +49,7 @@
                 @Html.LabelFor(model => model.fecha_vencimiento)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.fecha_vencimiento)
+                @Html.EditorFor(model => model.fecha_vencimiento, new { htmlAttributes = new { required ="required" }})
                 @Html.ValidationMessageFor(model => model.fecha_vencimiento)
             </div>
         </div>
@@ -63,7 +63,7 @@
                 @Html.LabelFor(model => model.ordenador_gasto)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.ordenador_gasto, new { htmlAttributes = new { @style = "text-transform:uppercase;width:300px" } })
+                @Html.EditorFor(model => model.ordenador_gasto, new { htmlAttributes = new { @style = "text-transform:uppercase;width:300px", required="required" } })
                 @Html.ValidationMessageFor(model => model.ordenador_gasto)
             </div>
             <p></p>
@@ -72,7 +72,7 @@
                 @Html.LabelFor(model => model.supervisor)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.supervisor, new { htmlAttributes = new { @style = "text-transform:uppercase;width:300px" } })
+                @Html.EditorFor(model => model.supervisor, new { htmlAttributes = new { @style = "text-transform:uppercase;width:300px", required="required" } })
                 @Html.ValidationMessageFor(model => model.supervisor)
             </div>
             <p></p>

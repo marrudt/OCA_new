@@ -16,7 +16,7 @@
         <div class="editor-label">
             @Html.LabelFor(model => model.OC)
             <div class="editor-field">
-                @Html.DropDownList("OC", new SelectList(ViewBag.ListaOCs, "OC", "OC"), "Seleccione OC",new { @style = "width:80" })
+                @Html.DropDownList("OC", new SelectList(ViewBag.ListaOCs, "OC", "OC"), "Seleccione OC", new { @style = "width:100", required = "required" })
                 @Html.ValidationMessageFor(model => model.OC)
             </div>
         </div>

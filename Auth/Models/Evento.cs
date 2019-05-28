@@ -8,6 +8,7 @@ namespace Auth.Models
     {
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "Obligatorio")]
         public string Numero { get; set; }
 
         [Required(ErrorMessage = "Obligatorio")]
@@ -35,12 +36,14 @@ namespace Auth.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime FechaSolicitud { get; set; }
 
+        [Required(ErrorMessage = "Obligatorio")]
         [Display(Name = "Segmento")]
-        public int? IdSegmento { get; set; }
+        public int IdSegmento { get; set; }
 
+        [Required(ErrorMessage = "Obligatorio")]
         [Display(Name = "Detalle")]
-        public int? IdDetalle { get; set; }
-
+        public int IdDetalle { get; set; }
+        
         [Display(Name = "Adecuación (Solo Vh Especial)")]
         public int? IdAdecuacion { get; set; } 
 

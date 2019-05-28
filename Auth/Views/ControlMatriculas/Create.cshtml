@@ -20,7 +20,7 @@
                     @Html.LabelFor(model => model.OC)
                 </div>
                 <div class="editor-field">
-                    @Html.DropDownListFor(model => model.OC, ViewBag.ListaOCs as SelectList, "Seleccione OC")
+                    @Html.DropDownListFor(model => model.OC, ViewBag.ListaOCs as SelectList, "Seleccione OC", new { @style = "width:100px", required = "required" })
                     @Html.ValidationMessageFor(model => model.OC)
                 </div>
             </div>
@@ -30,7 +30,7 @@
                     @Html.LabelFor(model => model.nit)
                 </div>
                 <div class="editor-field">
-                    @Html.DropDownListFor(model => model.nit, ViewBag.ListaTerceros as SelectList, "Seleccione Cliente", new { @style = "width:450px"  } )
+                    @Html.DropDownListFor(model => model.nit, ViewBag.ListaTerceros as SelectList, "Seleccione Cliente", new { @style = "width:450px", required = "required" })
                     @Html.ValidationMessageFor(model => model.nit)
                 </div>
             </div>
@@ -40,7 +40,7 @@
                     @Html.LabelFor(model => model.linea)
                 </div>
                 <div class="editor-field">
-                    @Html.DropDownListFor(model => model.linea, ViewBag.ListaLineas as SelectList, "Seleccione Línea")
+                    @Html.DropDownListFor(model => model.linea, ViewBag.ListaLineas as SelectList, "Seleccione Línea", new { required = "required" })
                     @Html.ValidationMessageFor(model => model.linea)
                 </div>
             </div>
@@ -50,7 +50,7 @@
                     @Html.LabelFor(model => model.fecha)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.fecha)
+                    @Html.EditorFor(model => model.fecha, new { htmlAttributes = new { required = "required" } })
                     @Html.ValidationMessageFor(model => model.fecha)
                 </div>
             </div>
@@ -498,5 +498,7 @@
 }
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    @*@Scripts.Render("~/bundles/jqueryval")*@
 }
