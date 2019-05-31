@@ -33,7 +33,7 @@
                 <div class="editor-field">
                     <asp:Button runat="server" OnClick="SignIn" Text="Entrar" Class="btn btn-success"></asp:Button>
                     <%--<button class="btn btn-primary" role="link" onclick="CreateUser_Click">Registrar</button>--%>
-                    <a class="btn btn-primary" href="http://localhost:62536/registrar.aspx">Registrar</a>
+                    <a class="btn btn-primary" href="http://192.168.70.99:85/registrar.aspx">Registrar</a>
                 </div>
             </div>
         </asp:PlaceHolder>     
