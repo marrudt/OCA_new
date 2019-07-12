@@ -28,6 +28,9 @@
             @Html.DisplayNameFor(model => model.Numero)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.OC)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Nit)
         </th>
         <th>
@@ -92,76 +95,88 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Numero)
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Numero)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OC)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nit)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ciudad)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Comprador)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Telefono)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FechaSolicitud)
+    </td>
+    @*<td>
+            @Html.DisplayFor(modelItem => item.IdSegmento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdDetalle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdAdecuacion)
+        </td>
+        <td>
+                @Html.DisplayFor(modelItem => item.IntervaloPrecio)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Nit)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ciudad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Comprador)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefono)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaSolicitud)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.IdSegmento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdDetalle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdAdecuacion)
-            </td>
-            <td>
-                    @Html.DisplayFor(modelItem => item.IntervaloPrecio)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Transmision)
-                </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.Unidades)
-            </td>
-            @*<td>
-                    @Html.DisplayFor(modelItem => item.MttoPreventivo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ReqMatricula)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ImpuestoRodamiento)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Soat)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Vigencia)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GravamenesAdicionales)
-                </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.Total)
-            </td>
-            @*<td>
-                    @Html.DisplayFor(modelItem => item.Notas)
-                </td>*@
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) 
-                @*@Html.ActionLink("Detalles", "Details", new { id = item.Id }) |*@
-                @*<a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">Eliminar</a>*@
-            </td>
-        </tr>
+                @Html.DisplayFor(modelItem => item.Transmision)
+            </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.Unidades)
+    </td>
+    @*<td>
+            @Html.DisplayFor(modelItem => item.MttoPreventivo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReqMatricula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImpuestoRodamiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Soat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vigencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GravamenesAdicionales)
+        </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.Total)
+    </td>
+    @*<td>
+            @Html.DisplayFor(modelItem => item.Notas)
+        </td>        
+        <td>
+            @Html.DisplayFor(modelItem => item.Adjudicado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Perdido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cancelado)
+        </td>
+        *@    
+    <td>
+        @Html.ActionLink("Editar", "Edit", new { id = item.Id })
+        @*<a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">Eliminar</a>*@
+    </td>
+</tr>
     }
 
 </table>

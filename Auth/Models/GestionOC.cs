@@ -58,6 +58,16 @@ namespace Auth.Models
         [Display(Name = "Entidad Matricula")]
         public string entidad_matricula { get; set; }
 
+        [Display(Name = "Envio Carrocera/C. Alistamiento")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime fecha_envio_carrocera { get; set; }
+
+        [Display(Name = "Recepción Carrocera/C. Alistamiento")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime fecha_recepcion_carrocera { get; set; }
+
         [Display(Name = "Notas")]
         [DataType(DataType.MultilineText)]
         public string notas { get; set; }

@@ -35,6 +35,7 @@ namespace Auth.Controllers
         {
             ViewBag.ListaTerceros = new SelectList(db.TercerosOCAs.OrderBy(x => x.nombres), "nombres", "nombres");
             ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "Id", "OC");
+            ViewBag.ListaModelos = new SelectList(db.ModelosOCAs.OrderBy(x => x.Modelo).Where(m => m.Activo == true), "Modelo", "Modelo");
 
             return View();
         }
@@ -75,6 +76,8 @@ namespace Auth.Controllers
                 //this.ViewBag.ListaOcs = new DBOCAContext().Set<OrdenCompra>().ToList();
                 ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "Id", "OC");
                 ViewBag.ListaTerceros = new SelectList(db.TercerosOCAs.OrderBy(x => x.nombres), "nombres", "nombres");
+                ViewBag.ListaModelos = new SelectList(db.ModelosOCAs.OrderBy(x => x.Modelo).Where(m => m.Activo == true), "Modelo", "Modelo");
+
             }
 
             return View(ordenCompra);
@@ -96,6 +99,7 @@ namespace Auth.Controllers
 
             ViewBag.ListaOCs = new SelectList(db.OrdenCompra.OrderBy(x => x.OC), "Id", "OC");
             ViewBag.ListaTerceros = new SelectList(db.TercerosOCAs.OrderBy(x => x.nombres), "nombres", "nombres");
+            ViewBag.ListaModelos = new SelectList(db.ModelosOCAs.OrderBy(x => x.Modelo).Where(m => m.Activo == true), "Modelo", "Modelo");
 
             return View(ordenCompra);
         }

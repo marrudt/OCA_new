@@ -14,43 +14,67 @@
 
         @Html.HiddenFor(model => model.Id)
 
-        <div style="width:15%; float:left;">
-            <div class="editor-label">
-                @Html.LabelFor(model => model.OC)
+        <div style="width:100%; float:left;">
+            <div style="width:10%; float:left;">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.OC)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.OC, new { htmlAttributes = new { @style = "text-transform:uppercase;width:80px", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.OC)
+                </div>
             </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.OC, new { htmlAttributes = new { @readonly = "readonly", @style = "width:80px" } })
-                @Html.ValidationMessageFor(model => model.OC)
+
+            <div style="width:45%; float:left;">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.nit)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.nit, ViewBag.ListaTerceros as SelectList, "Seleccione Cliente", new { @style = "width:450px", required = "required" })
+                    @Html.ValidationMessageFor(model => model.nit)
+                </div>
+            </div>
+
+            <div style="width:15%; float:left;">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.fecha_emision)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_emision, new { htmlAttributes = new { required = "required" } })
+                    @Html.ValidationMessageFor(model => model.fecha_emision)
+                </div>
+            </div>
+
+            <div style="width:15%; float:left;">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.fecha_vencimiento)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_vencimiento, new { htmlAttributes = new { required = "required" } })
+                    @Html.ValidationMessageFor(model => model.fecha_vencimiento)
+                </div>
+            </div>
+
+            <div style="width:15%; float:left;">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.fecha_vencimiento_nueva)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_vencimiento_nueva)
+                    @Html.ValidationMessageFor(model => model.fecha_vencimiento_nueva)
+                </div>
             </div>
         </div>
 
-        <div style="width:50%; float:left;">
-            <div class="editor-label">
-                @Html.LabelFor(model => model.nit)
-            </div>
-            <div class="editor-field">
-                @Html.DropDownListFor(model => model.nit, ViewBag.ListaTerceros as SelectList, "Seleccione Cliente", new { @style = "width:450px", required="required" })
-                @Html.ValidationMessageFor(model => model.nit)
-            </div>
-        </div>
-
-        <div style="width:17%; float:left;">
-            <div class="editor-label">
-                @Html.LabelFor(model => model.fecha_emision)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.fecha_emision, new { htmlAttributes = new { required ="required" }})
-                @Html.ValidationMessageFor(model => model.fecha_emision)
-            </div>
-        </div>
-
-        <div style="width:18%; float:left;">
-            <div class="editor-label">
-                @Html.LabelFor(model => model.fecha_vencimiento)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.fecha_vencimiento, new { htmlAttributes = new { required ="required" }})
-                @Html.ValidationMessageFor(model => model.fecha_vencimiento)
+        <div style="width:100%;float:right;">
+            <div style="width:19.5%; float:right;">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.cambio_fecha)
+                </div>
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.cambio_fecha)
+                    @Html.ValidationMessageFor(model => model.cambio_fecha)
+                </div>
             </div>
         </div>
 
@@ -63,7 +87,7 @@
                 @Html.LabelFor(model => model.ordenador_gasto)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.ordenador_gasto, new { htmlAttributes = new { @style = "text-transform:uppercase;width:300px", required="required" } })
+                @Html.EditorFor(model => model.ordenador_gasto, new { htmlAttributes = new { @style = "text-transform:uppercase;width:300px", required = "required" } })
                 @Html.ValidationMessageFor(model => model.ordenador_gasto)
             </div>
             <p></p>
@@ -72,158 +96,189 @@
                 @Html.LabelFor(model => model.supervisor)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.supervisor, new { htmlAttributes = new { @style = "text-transform:uppercase;width:300px", required="required" } })
+                @Html.EditorFor(model => model.supervisor, new { htmlAttributes = new { @style = "text-transform:uppercase;width:300px", required = "required" } })
                 @Html.ValidationMessageFor(model => model.supervisor)
             </div>
             <p></p>
 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.telefono_1)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.telefono_1, new { htmlAttributes = new { @style = "width:80px" } })
-                @Html.ValidationMessageFor(model => model.telefono_1)
-            </div>
-            <p></p>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.ext_1)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.ext_1, new { htmlAttributes = new { @style = "width:30px" } })
-                @Html.ValidationMessageFor(model => model.ext_1)
-            </div>
-            <p></p>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.telefono_2)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.telefono_2, new { htmlAttributes = new { @style = "width:80px" } })
-                @Html.ValidationMessageFor(model => model.telefono_2)
-            </div>
-            <p></p>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.ext_2)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.ext_2, new { htmlAttributes = new { @style = "width:30px" } })
-                @Html.ValidationMessageFor(model => model.ext_2)
-            </div>
-            <p></p>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.celular)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.celular, new { htmlAttributes = new { @style = "width:80px" } })
-                @Html.ValidationMessageFor(model => model.celular)
-            </div>
-            <p></p>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.mail_ordenador_gasto)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.mail_ordenador_gasto, new { htmlAttributes = new { @style = "text-transform:lowercase;width:300px" } })
-                @Html.ValidationMessageFor(model => model.mail_ordenador_gasto)
-            </div>
-            <p></p>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.mail_supervisor)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.mail_supervisor, new { htmlAttributes = new { @style = "text-transform:lowercase;width:300px" } })
-                @Html.ValidationMessageFor(model => model.mail_supervisor)
+            <div style="width:90%; float:left;">
+                <div style="width:20%; float:left;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.telefono_1)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.telefono_1, new { htmlAttributes = new { @style = "width:80px" } })
+                        @Html.ValidationMessageFor(model => model.telefono_1)
+                    </div>
+                </div>
+                <div style="width:50%; float:left;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ext_1)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.ext_1, new { htmlAttributes = new { @style = "width:30px" } })
+                        @Html.ValidationMessageFor(model => model.ext_1)
+                    </div>
+                </div>
             </div>
 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.ValorOC)
+            <div style="width:90%; float:left;">
+                <div style="width:20%; float:left;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.telefono_2)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.telefono_2, new { htmlAttributes = new { @style = "width:80px" } })
+                        @Html.ValidationMessageFor(model => model.telefono_2)
+                    </div>
+                </div>
+                <div style="width:50%; float:left;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ext_2)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.ext_2, new { htmlAttributes = new { @style = "width:30px" } })
+                        @Html.ValidationMessageFor(model => model.ext_2)
+                    </div>
+                </div>
             </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.ValorOC, new { htmlAttributes = new { required ="required" }})
-                @Html.ValidationMessageFor(model => model.ValorOC)
-            </div>
-        </div>
-        <hr />
 
-        <div style="width:50%; float:left;">
-            <div class="editor-label">
-                @Html.LabelFor(model => model.numero_AZ)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.numero_AZ, new { htmlAttributes = new { @style = "width:50px" } })
-                @Html.ValidationMessageFor(model => model.numero_AZ)
-            </div>
-            <p></p>
+            <div style="width:50%; float:left;">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.celular)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.celular, new { htmlAttributes = new { @style = "width:80px" } })
+                    @Html.ValidationMessageFor(model => model.celular)
+                </div>
 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.fecha_pago)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.fecha_pago)
-                @Html.ValidationMessageFor(model => model.fecha_pago)
-            </div>
-            <p></p>
 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.fecha_recaudo)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.fecha_recaudo)
-                @Html.ValidationMessageFor(model => model.fecha_recaudo)
-            </div>
-            <p></p>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.mail_ordenador_gasto)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.mail_ordenador_gasto, new { htmlAttributes = new { @style = "text-transform:lowercase;width:300px" } })
+                    @Html.ValidationMessageFor(model => model.mail_ordenador_gasto)
+                </div>
+                <p></p>
 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.fecha_llegada_comp_pago)
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.mail_supervisor)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.mail_supervisor, new { htmlAttributes = new { @style = "text-transform:lowercase;width:300px" } })
+                    @Html.ValidationMessageFor(model => model.mail_supervisor)
+                </div>
             </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.fecha_llegada_comp_pago)
-                @Html.ValidationMessageFor(model => model.fecha_llegada_comp_pago)
-            </div>
-            <p></p>
+                <div style="width:90%; float:left;">
+                    <div style="width:20%; float:left;">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Unidades)
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Unidades, new { htmlAttributes = new { @style = "width:50px" } })
+                                @Html.ValidationMessageFor(model => model.Unidades)
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.fecha_solicitud_comp_pago)
+                    <div style="width:50%; float:left;">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Modelo)
+                            <div class="editor-field">
+                                @Html.DropDownListFor(model => model.Modelo, ViewBag.ListaModelos as SelectList, "Seleccione Modelo", new { style = "width:300px" })
+                                @Html.ValidationMessageFor(model => model.Modelo)
+                            </div>
+                        </div>
+                    </div>
+                </div>                
             </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.fecha_solicitud_comp_pago)
-                @Html.ValidationMessageFor(model => model.fecha_solicitud_comp_pago)
-            </div>
-            <p></p>
+            <hr />
 
-            <div class="editor-label">
-                <label>Adjuntos:</label>
+            <div style="width:50%; float:left;">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ValorOC)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.ValorOC, new { htmlAttributes = new { required = "required" } })
+                    @Html.ValidationMessageFor(model => model.ValorOC)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.numero_AZ)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.numero_AZ, new { htmlAttributes = new { @style = "width:50px" } })
+                    @Html.ValidationMessageFor(model => model.numero_AZ)
+                </div>
+                <p></p>
+
+                <div style="width:90%; float:left;">
+                    <div style="width:25%; float:left;">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.fecha_recaudo)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.fecha_recaudo)
+                            @Html.ValidationMessageFor(model => model.fecha_recaudo)
+                        </div>
+                    </div>
+                    <div style="width:50%; float:left;">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Documento)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.Documento)
+                            @Html.ValidationMessageFor(model => model.Documento)
+                        </div>
+                    </div>
+                </div>
+                <div style="width:100%; float:left;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_llegada_comp_pago)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.fecha_llegada_comp_pago)
+                        @Html.ValidationMessageFor(model => model.fecha_llegada_comp_pago)
+                    </div>
+                    <p></p>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.fecha_solicitud_comp_pago)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.fecha_solicitud_comp_pago)
+                        @Html.ValidationMessageFor(model => model.fecha_solicitud_comp_pago)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.notas)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.notas)
+                        @Html.ValidationMessageFor(model => model.notas)
+                    </div>
+                </div>
             </div>
-            <div class="editor-field">
-                <input type="file" name="file" multiple="multiple" />
-                <ul class="attachment">
-                    @foreach (var item in Model.ArchivoOCs)
-                    {
-                        <li>
-                            <a class="title" href="/OrdenCompras/Download/?p=@(item.Id + item.Extension)&d=@item.NombreArchivo">@item.NombreArchivo</a>
-                            <a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">X</a>
-                        </li>
-                    }
-                </ul>
-            </div>
-        </div>
+</fieldset>
+
+    <fieldset>
         <div class="editor-label">
-            @Html.LabelFor(model => model.notas)
+            <label>Adjuntos:</label>
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.notas)
-            @Html.ValidationMessageFor(model => model.notas)
+            <input type="file" name="file" multiple="multiple" />
+            <ul class="attachment">
+                @foreach (var item in Model.ArchivoOCs)
+                {
+                    <li>
+                        <a class="title" href="/OrdenCompras/Download/?p=@(item.Id + item.Extension)&d=@item.NombreArchivo">@item.NombreArchivo</a>
+                        <a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">X</a>
+                    </li>
+                }
+            </ul>
         </div>
-        <p></p>
-        <input type="submit" value="Guardar" class="btn btn-info" />
-        <p></p>
     </fieldset>
 
-    <div>
+    <div>        
+        <input type="submit" value="Guardar" class="btn btn-info" />        
         <form method="post" action='@Url.Action("Index", "OrdenCompras")' />
         <input type="submit" class="btn btn-default" value="Ir al Listado" />
     </div>

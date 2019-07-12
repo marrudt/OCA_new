@@ -16,27 +16,37 @@
             <div class="editor-label">
                 @Html.LabelFor(model => model.Numero)
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { style = "width:80px", required="required"  } })
+                    @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { style = "width:80px", required = "required" } })
                     @Html.ValidationMessageFor(model => model.Numero)
                 </div>
             </div>
         </div>
 
-        <div style="width:50%; float:left;">
+        <div style="width:20%; float:left;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.OC)
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.OC, ViewBag.ListaOCs as SelectList, "Seleccione OC")
+                    @Html.ValidationMessageFor(model => model.OC)
+                </div>
+            </div>
+        </div>
+
+        <div style="width:40%; float:left;">
             <div class="editor-label">
                 @Html.LabelFor(model => model.Nit)
                 <div class="editor-field">
-                    @Html.DropDownListFor(model => model.Nit, ViewBag.ListaTerceros as SelectList, "Seleccione Cliente", new { required="required" })
+                    @Html.DropDownListFor(model => model.Nit, ViewBag.ListaTerceros as SelectList, "Seleccione Cliente", new { required = "required" })
                     @Html.ValidationMessageFor(model => model.Nit)
                 </div>
             </div>
         </div>
 
-        <div style="width:30%; float:left;">
+        <div style="width:20%; float:left;">
             <div class="editor-label">
                 @Html.LabelFor(model => model.FechaSolicitud)
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.FechaSolicitud, new { htmlAttributes = new { required ="required" }})
+                    @Html.EditorFor(model => model.FechaSolicitud, new { htmlAttributes = new { required = "required" } })
                     @Html.ValidationMessageFor(model => model.FechaSolicitud)
                 </div>
             </div>
@@ -48,7 +58,7 @@
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Ciudad)
                     <div class="editor-field">
-                        @Html.DropDownListFor(model => model.Ciudad, ViewBag.ListaCiudades as SelectList, "Seleccione Ciudad", new { style = "width:200px", required="required" })
+                        @Html.DropDownListFor(model => model.Ciudad, ViewBag.ListaCiudades as SelectList, "Seleccione Ciudad", new { style = "width:200px", required = "required" })
                         @Html.ValidationMessageFor(model => model.Ciudad)
                     </div>
                 </div>
@@ -58,7 +68,7 @@
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Comprador)
                     <div class="editor-field">
-                        @Html.EditorFor(model => model.Comprador, new { htmlAttributes = new { @style = "text-transform:uppercase;width:350px", required="required" } }) 
+                        @Html.EditorFor(model => model.Comprador, new { htmlAttributes = new { @style = "text-transform:uppercase;width:350px", required = "required" } })
                         @Html.ValidationMessageFor(model => model.Comprador)
                     </div>
                 </div>
@@ -68,7 +78,7 @@
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Telefono)
                     <div class="editor-field">
-                        @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { required ="required" }})
+                        @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { required = "required" } })
                         @Html.ValidationMessageFor(model => model.Telefono)
                     </div>
                 </div>
@@ -78,7 +88,7 @@
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Email)
                     <div class="editor-field">
-                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { type = "email", @style = "text-transform:lowercase;width:280px" , required ="required"} })
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { type = "email", @style = "text-transform:lowercase;width:280px", required = "required" } })
                         @Html.ValidationMessageFor(model => model.Email)
                     </div>
                 </div>
@@ -128,98 +138,140 @@
                 </div>
             </div>
 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Unidades)
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.Unidades, new { htmlAttributes = new { @style = "width:50px" }})
-                    @Html.ValidationMessageFor(model => model.Unidades)
+            <div style="width:90%; float:left;">
+                <div style="width:20%; float:left;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Unidades)
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.Unidades, new { htmlAttributes = new { @style = "width:50px" } })
+                            @Html.ValidationMessageFor(model => model.Unidades)
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.MttoPreventivo)
-                <div class="editor-field">
-                    @Html.DropDownListFor(model => model.MttoPreventivo, ViewBag.ListaMttos as SelectList, "Seleccione Mantenimiento")
-                    @Html.ValidationMessageFor(model => model.MttoPreventivo)
-                </div>
-            </div>
-        </div>
-
-        <div style="width:55%; float:left;">
-            <div class="editor-label">
-                @Html.LabelFor(model => model.ReqMatricula)
-                <div class="editor-field">
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.ReqMatricula)
-                        @Html.ValidationMessageFor(model => model.ReqMatricula)
+                <div style="width:50%; float:left;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Modelo)
+                        <div class="editor-field">
+                            @Html.DropDownListFor(model => model.Modelo, ViewBag.ListaModelos as SelectList, "Seleccione Modelo", new { style = "width:300px" })
+                            @Html.ValidationMessageFor(model => model.Modelo)
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.ImpuestoRodamiento)
-                <div class="editor-field">
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.ImpuestoRodamiento)
-                        @Html.ValidationMessageFor(model => model.ImpuestoRodamiento)
+            <div style="width:50%; float:left;">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.MttoPreventivo)
+                    <div class="editor-field">
+                        @Html.DropDownListFor(model => model.MttoPreventivo, ViewBag.ListaMttos as SelectList, "Seleccione Mantenimiento")
+                        @Html.ValidationMessageFor(model => model.MttoPreventivo)
+                    </div>
+                </div>
+            </div>
+</div>
+            <div style="width:55%; float:left;">
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ReqMatricula)
+                    <div class="editor-field">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.ReqMatricula)
+                            @Html.ValidationMessageFor(model => model.ReqMatricula)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ImpuestoRodamiento)
+                    <div class="editor-field">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.ImpuestoRodamiento)
+                            @Html.ValidationMessageFor(model => model.ImpuestoRodamiento)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.GravamenesAdicionales)
+                    <div class="editor-field">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.GravamenesAdicionales)
+                            @Html.ValidationMessageFor(model => model.GravamenesAdicionales)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Soat)
+                    <div class="editor-field">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.Soat)
+                            @Html.ValidationMessageFor(model => model.Soat)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Vigencia)
+                    <div class="editor-field">
+                        @Html.DropDownListFor(model => model.Vigencia, ViewBag.ListaVigencias as SelectList, "Seleccione Vigencia")
+                        @Html.ValidationMessageFor(model => model.Vigencia)
+                    </div>
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Total)
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Total)
+                        @Html.ValidationMessageFor(model => model.Total)
+                    </div>
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Notas)
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Notas)
+                        @Html.ValidationMessageFor(model => model.Notas)
+                    </div>
+                </div>
+                <div style="width:55%; float:left;">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Adjudicado)
+                        <div class="editor-field">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.Adjudicado)
+                                @Html.ValidationMessageFor(model => model.Adjudicado)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Perdido)
+                        <div class="editor-field">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.Perdido)
+                                @Html.ValidationMessageFor(model => model.Perdido)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Cancelado)
+                        <div class="editor-field">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.Cancelado)
+                                @Html.ValidationMessageFor(model => model.Cancelado)
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.GravamenesAdicionales)
-                <div class="editor-field">
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.GravamenesAdicionales)
-                        @Html.ValidationMessageFor(model => model.GravamenesAdicionales)
-                    </div>
-                </div>
-            </div>
 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Soat)
-                <div class="editor-field">
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.Soat)
-                        @Html.ValidationMessageFor(model => model.Soat)
-                    </div>
-                </div>
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Vigencia)
-                <div class="editor-field">
-                    @Html.DropDownListFor(model => model.Vigencia, ViewBag.ListaVigencias as SelectList, "Seleccione Vigencia")
-                    @Html.ValidationMessageFor(model => model.Vigencia)
-                </div>
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Total)
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.Total)
-                    @Html.ValidationMessageFor(model => model.Total)
-                </div>
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Notas)
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.Notas)
-                    @Html.ValidationMessageFor(model => model.Notas)
-                </div>
-            </div>
-        </div>
-
-        <p>
-            <div class="editor-field">
-                <input type="submit" value="Crear" class="btn btn-success" />
-            </div>
-        </p>
-
-    </fieldset>
-
-    <div>
+</fieldset>
+    
+        <div class="editor-field">
+            <input type="submit" value="Crear" class="btn btn-success" />        
         <input type="submit" class="btn btn-default" value="Ir al Listado" />
     </div>
 }

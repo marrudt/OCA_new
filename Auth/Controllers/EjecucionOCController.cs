@@ -47,6 +47,7 @@ namespace Auth.Controllers
         public ActionResult Create()
         {
             this.ViewBag.ListaOCs = new DBOCAContext().Set<OrdenCompra>().ToList();
+            ViewBag.ListaResponsables = new SelectList(db.Responsables.OrderBy(x => x.Nombre), "Nombre", "Nombre");
 
             return View();
         }
@@ -85,6 +86,7 @@ namespace Auth.Controllers
             else
             {
                 this.ViewBag.ListaOcs = new DBOCAContext().Set<OrdenCompra>().ToList();
+                ViewBag.ListaResponsables = new SelectList(db.Responsables.OrderBy(x => x.Nombre), "Nombre", "Nombre");
             }
 
             return View(ejecucionOC);
@@ -106,6 +108,7 @@ namespace Auth.Controllers
             }
 
             this.ViewBag.ListaOCs = new DBOCAContext().Set<OrdenCompra>().ToList();
+            ViewBag.ListaResponsables = new SelectList(db.Responsables.OrderBy(x => x.Nombre), "Nombre", "Nombre");
 
             return View(ejecucionOC);
         }

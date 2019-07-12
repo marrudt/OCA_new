@@ -60,8 +60,23 @@
                     @Html.ValidationMessageFor(model => model.fecha_cierre_factura)
                 </div>
             </div>
-        </div>
 
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fecha_envio_carrocera)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_envio_carrocera)
+                    @Html.ValidationMessageFor(model => model.fecha_envio_carrocera)
+                </div>
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fecha_recepcion_carrocera)
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.fecha_recepcion_carrocera)
+                    @Html.ValidationMessageFor(model => model.fecha_recepcion_carrocera)
+                </div>
+            </div>
+        </div>
         <div style="width:60%; float:left;">
             <div class="editor-label">
                 @Html.LabelFor(model => model.envio_carta_comparendos)
@@ -73,7 +88,7 @@
                 </div>
             </div>
 
-            <div class="editor-label">
+            @*<div class="editor-label">
                 @Html.LabelFor(model => model.se_legalizo)
                 <div class="editor-field">
                     <div class="checkbox">
@@ -81,7 +96,7 @@
                         @Html.ValidationMessageFor(model => model.se_legalizo)
                     </div>
                 </div>
-            </div>
+            </div>*@
 
             <div class="editor-label">
                 @Html.LabelFor(model => model.estampilla_pagar)
@@ -111,13 +126,13 @@
                 </div>
             </div>
 
-            <div class="editor-label">
+            @*<div class="editor-label">
                 @Html.LabelFor(model => model.entidad_matricula)
                 <div class="editor-field">
                     @Html.DropDownListFor(model => model.entidad_matricula, ViewBag.ListaEntidades as SelectList, "Seleccione Entidad")
                     @Html.ValidationMessageFor(model => model.entidad_matricula)
                 </div>
-            </div>
+            </div>*@
 
             <div class="editor-label">
                 @Html.LabelFor(model => model.notas)

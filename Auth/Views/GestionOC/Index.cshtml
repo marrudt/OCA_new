@@ -46,8 +46,7 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.estampilla_dcto)
-        </th>*@
-        <th>
+        </th>
             @Html.DisplayNameFor(model => model.fecha_estampilla)
         </th>
         <th>
@@ -59,9 +58,15 @@
         <th>
             @Html.DisplayNameFor(model => model.entidad_matricula)
         </th>
-        @*<th>
+        <th>
             @Html.DisplayNameFor(model => model.notas)
         </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_envio_carrocera)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_recepcion_carrocera)
+        </th>
         <th>Acción</th>
     </tr>
 
@@ -91,7 +96,7 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.estampilla_dcto)
-        </td>*@
+        </td>
     <td>
         @Html.DisplayFor(modelItem => item.fecha_estampilla)
     </td>
@@ -104,13 +109,18 @@
     <td>
         @Html.DisplayFor(modelItem => item.entidad_matricula)
     </td>
-    @*<td>
+    <td>
             @Html.DisplayFor(modelItem => item.notas)
         </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.fecha_envio_carrocera)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fecha_recepcion_carrocera)
+    </td>
 
     <td>
         @Html.ActionLink("Editar", "Edit", new { id = item.Id })
-        @*@Html.ActionLink("Detalles", "Details", new { id = item.Id }) |*@
         @*<a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">Eliminar</a>*@
     </td>
 </tr>

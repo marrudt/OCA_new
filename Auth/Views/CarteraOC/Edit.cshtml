@@ -98,35 +98,35 @@
             </div>
 
             <div class="editor-label">
-                <label>Adjuntos:</label>
-            </div>
-            <div class="editor-field">
-                <input type="file" name="file" multiple="multiple" />
-                <ul class="attachment">
-                    @foreach (var item in Model.ArchivoCarteraOCs)
-                    {
-                        <li>
-                            <a class="title" href="/CarteraOC/Download/?a=@(item.Id + item.Extension)&b=@item.NombreArchivo">@item.NombreArchivo</a>
-                            <a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">X</a>
-                        </li>
-                    }
-                </ul>
-            </div>
-
-            <div class="editor-label">
                 @Html.LabelFor(model => model.notas)
             </div>
             <div class="editor-field">
                 @Html.EditorFor(model => model.notas)
                 @Html.ValidationMessageFor(model => model.notas)
             </div>
-        </div>
-        <p></p>
-        <input type="submit" value="Guardar" class="btn btn-info" />
-        <p></p>
+        </div>        
     </fieldset>
 
-    <div>
+    <fieldset>
+        <div class="editor-label">
+            <label>Adjuntos:</label>
+        </div>
+        <div class="editor-field">
+            <input type="file" name="file" multiple="multiple" />
+            <ul class="attachment">
+                @foreach (var item in Model.ArchivoCarteraOCs)
+                {
+                    <li>
+                        <a class="title" href="/CarteraOC/Download/?a=@(item.Id + item.Extension)&b=@item.NombreArchivo">@item.NombreArchivo</a>
+                        <a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">X</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </fieldset>
+
+    <div>        
+        <input type="submit" value="Guardar" class="btn btn-info" />       
         <form method="post" action='@Url.Action("Index", "OrdenCompras")' />
         <input type="submit" class="btn btn-default" value="Ir al Listado" />
     </div>

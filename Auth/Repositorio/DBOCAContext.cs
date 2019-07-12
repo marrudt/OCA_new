@@ -21,6 +21,7 @@ namespace Auth.Repositorio
         public DbSet<TercerosOCA> TercerosOCAs { get; set; }
         public DbSet<ArchivoCarteraOC> ArchivoCarteraOCs { get; set; }
         public DbSet<ArchivoEjecucionOC> ArchivoEjecucionOCs { get; set; }
+        public DbSet<ArchivoMatriculaOC> ArchivoMatriculaOCs { get; set; }
         public DbSet<Proveedor> Proveedors { get; set; }
         public DbSet<ReferenciasOC> ReferenciasOC { get; set; }
         public DbSet<EntidadMatricula> EntidadMatriculas { get; set; }
@@ -36,6 +37,8 @@ namespace Auth.Repositorio
         public DbSet<Detalle> Detalles { get; set; }
         public DbSet<Adecuacion> Adecuacions { get; set; }
         public DbSet<RegisterViewModel> Registro { get; set; }
-        public DbSet<Usuario> Usuarios_OCA { get; set; }        
+        public DbSet<Usuario> Usuarios_OCA { get; set; }
+        public DbSet<ModelosOCA> ModelosOCAs { get; set; }
+        public DbSet<Responsable> Responsables { get; set; }
     }
 }

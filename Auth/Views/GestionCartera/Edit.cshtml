@@ -71,10 +71,10 @@
 
             <div class="editor-label">
                 @Html.LabelFor(model => model.responsable_gestion)
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.responsable_gestion, new { htmlAttributes = new { @style = "text-transform:uppercase;width:350px", required = "required" } })
-                    @Html.ValidationMessageFor(model => model.responsable_gestion)
-                </div>
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.responsable_gestion, ViewBag.ListaResponsables as SelectList, "Seleccione Responsable", new { @style = "width:250px", required = "required" })
+                @Html.ValidationMessageFor(model => model.responsable_gestion)
             </div>
 
         </div>

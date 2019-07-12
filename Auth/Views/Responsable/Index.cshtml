@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Auth.Models.Responsable>
+
+@{
+    ViewBag.Title = "Responsables";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Responsables</h3>
+
+<div>
+    @Html.ActionLink("Crear Nuevo", "Create", "Responsable", new { @class = "btn btn-info" })
+</div>
+<hr />
+<br />
+<table style="width:50%">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>Acción</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                <a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">Eliminar</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section Scripts {
+
+    <script>
+        $('.deleteItem').click(function (e) {
+            e.preventDefault();
+            var $ctrl = $(this);
+            if (confirm('Desea eliminar Reponsable?')) {
+                $.ajax({
+                    url: '@Url.Action("Delete")',
+                    type: 'POST',
+                    data: { id: $(this).data('id') }
+                }).done(function (data) {
+                    if (data.Result == "OK") {
+                        $ctrl.closest('tr').remove();
+                    }
+                    else if (data.Result.Message) {
+                        alert(data.Result.Message);
+                    }
+                }).fail(function () {
+                    alert("Sucedió un error, intente nuevamente.");
+                })
+            }
+        });
+    </script>
+}
+
+

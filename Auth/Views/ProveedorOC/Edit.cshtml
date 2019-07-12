@@ -87,22 +87,6 @@
             </div>
 
             <div class="editor-label">
-                <label>Adjuntos:</label>
-            </div>
-            <div class="editor-field">
-                <input type="file" name="file" multiple="multiple" />
-                <ul class="attachment">
-                    @foreach (var item in Model.ArchivoProveedorOCs)
-                    {
-                        <li>
-                            <a class="title" href="/ProveedorOC/Download/?p=@(item.Id + item.Extension)&d=@item.NombreArchivo">@item.NombreArchivo</a>
-                            <a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">X</a>
-                        </li>
-                    }
-                </ul>
-            </div>
-
-            <div class="editor-label">
                 @Html.LabelFor(model => model.notas)
             </div>
             <div class="editor-field" style="width: 100%; height: 75%;">
@@ -111,6 +95,24 @@
             </div>
         </div>
 
+    </fieldset>
+
+    <fieldset>
+        <div class="editor-label">
+            <label>Adjuntos:</label>
+        </div>
+        <div class="editor-field">
+            <input type="file" name="file" multiple="multiple" />
+            <ul class="attachment">
+                @foreach (var item in Model.ArchivoProveedorOCs)
+                {
+                    <li>
+                        <a class="title" href="/ProveedorOC/Download/?p=@(item.Id + item.Extension)&d=@item.NombreArchivo">@item.NombreArchivo</a>
+                        <a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">X</a>
+                    </li>
+                }
+            </ul>
+        </div>
     </fieldset>
 
     <div>

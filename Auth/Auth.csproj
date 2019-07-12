@@ -204,11 +204,13 @@
     <Compile Include="Controllers\IntervaloPrecioController.cs" />
     <Compile Include="Controllers\LineaVhController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ModelosOCAController.cs" />
     <Compile Include="Controllers\MttoPreventivoController.cs" />
     <Compile Include="Controllers\OrdenComprasController.cs" />
     <Compile Include="Controllers\ProveedorController.cs" />
     <Compile Include="Controllers\ProveedorOCController.cs" />
     <Compile Include="Controllers\ReferenciasOCController.cs" />
+    <Compile Include="Controllers\ResponsableController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SegmentoController.cs" />
     <Compile Include="Controllers\TercerosOCAController.cs" />
@@ -230,6 +232,7 @@
     <Compile Include="Models\Adecuacion.cs" />
     <Compile Include="Models\ArchivoCarteraOC.cs" />
     <Compile Include="Models\ArchivoEjecucionOC.cs" />
+    <Compile Include="Models\ArchivoMatriculaOC.cs" />
     <Compile Include="Models\ArchivoOC.cs" />
     <Compile Include="Models\ArchivoProveedorOC.cs" />
     <Compile Include="Models\CarteraOC.cs" />
@@ -245,11 +248,13 @@
     <Compile Include="Models\IntervaloPrecio.cs" />
     <Compile Include="Models\LineaVh.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ModelosOCA.cs" />
     <Compile Include="Models\MttoPreventivo.cs" />
     <Compile Include="Models\OrdenCompra.cs" />
     <Compile Include="Models\Proveedor.cs" />
     <Compile Include="Models\ProveedorOC.cs" />
     <Compile Include="Models\ReferenciasOC.cs" />
+    <Compile Include="Models\Responsable.cs" />
     <Compile Include="Models\ResponseModel.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Segmento.cs" />
@@ -475,11 +480,22 @@
     <Content Include="Views\Shared\_GridPager.cshtml" />
     <Content Include="Views\Shared\_Grid.cshtml" />
     <Content Include="Views\Account\DisplayAllRoles.cshtml" />
+    <Content Include="Views\ModelosOCA\Create.cshtml" />
+    <Content Include="Views\ModelosOCA\Delete.cshtml" />
+    <Content Include="Views\ModelosOCA\Details.cshtml" />
+    <Content Include="Views\ModelosOCA\Edit.cshtml" />
+    <Content Include="Views\ModelosOCA\Index.cshtml" />
+    <Content Include="Views\Responsable\Create.cshtml" />
+    <Content Include="Views\Responsable\Delete.cshtml" />
+    <Content Include="Views\Responsable\Details.cshtml" />
+    <Content Include="Views\Responsable\Edit.cshtml" />
+    <Content Include="Views\Responsable\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\ArchivosCarteraOC\" />
     <Folder Include="Content\ArchivosEjecucionOC\" />
+    <Folder Include="Content\ArchivosMatriculasOC\" />
     <Folder Include="Content\ArchivosOC\" />
     <Folder Include="Content\ArchivosProveedorOC\" />
     <Folder Include="DAL\" />

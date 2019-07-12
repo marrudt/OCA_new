@@ -31,6 +31,14 @@ namespace Auth.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime fecha_vencimiento { get; set; }
 
+        [Display(Name = "Fecha Inicial")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime? fecha_vencimiento_nueva { get; set; }
+
+        [Display(Name = "Cambio Fecha Vencimiento")]
+        public bool cambio_fecha { get; set; }
+
         [Required(ErrorMessage = "Obligatorio")]
         [Display(Name = "Ordenador del Gasto")]
         public string ordenador_gasto { get; set; }
@@ -62,11 +70,15 @@ namespace Auth.Models
         [Display(Name = "Email Supervisor")]
         public string mail_supervisor { get; set; }
 
+        [Required(ErrorMessage = "Obligatorio")]        
+        public int? Unidades { get; set; }
+
+        public string Modelo { get; set; }
+
         [DataType(DataType.Currency)]
         [Column(TypeName = "money")]
         [Display(Name = "Valor")]
         public decimal? ValorOC { get; set; }
-
 
         [Display(Name = "Número AZ")]
         public string numero_AZ { get; set; }
@@ -80,6 +92,9 @@ namespace Auth.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? fecha_recaudo { get; set; }
+
+        [Display(Name = "RC/Documento")]
+        public string Documento { get; set; }
 
         [Display(Name = "Llegada Comprobante Pago")]
         [DataType(DataType.Date)]

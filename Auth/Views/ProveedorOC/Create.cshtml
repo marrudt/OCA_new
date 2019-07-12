@@ -84,14 +84,7 @@
                     @Html.EditorFor(model => model.fechaFactProv)
                     @Html.ValidationMessageFor(model => model.fechaFactProv)
                 </div>
-            </div>
-
-            <div class="editor-label">
-                <label>Adjuntos:</label>
-            </div>
-            <div class="editor-field">
-                <input type="file" name="file" multiple="multiple" />
-            </div>
+            </div>            
 
             <div class="editor-label">
                 @Html.LabelFor(model => model.notas)
@@ -103,6 +96,14 @@
         </div>
     </fieldset>
 
+    <fieldset>
+        <div class="editor-label">
+            <label>Adjuntos:</label>
+        </div>
+        <div class="editor-field">
+            <input type="file" name="file" multiple="multiple" />
+        </div>
+    </fieldset>
 
     <div class="editor-field">
         <input type="submit" value="Crear" class="btn btn-success" />

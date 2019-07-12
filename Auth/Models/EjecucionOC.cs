@@ -14,6 +14,7 @@ namespace Auth.Models
         [Display(Name = "OC")]
         public string OC { get; set; }
 
+        [Required(ErrorMessage = "Obligatorio")]
         [Display(Name = "Cliente")]
         public string nit { get; set; }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Auth.Models
@@ -7,7 +8,7 @@ namespace Auth.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Obligatorio")]
+        //[Required(ErrorMessage = "Obligatorio")]
         [Display(Name = "Cliente")]
         public string nit { get; set; }
 
@@ -154,6 +155,10 @@ namespace Auth.Models
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime? fecha_alistamiento_real { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? fecha_accesorios { get; set; }
 
         [DataType(DataType.Date)]
@@ -176,6 +181,8 @@ namespace Auth.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? fecha_reporte_entrega { get; set; }
 
+        public string Entidad_Matricula { get; set; }
+
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Fecha Matricula")]
@@ -188,5 +195,7 @@ namespace Auth.Models
         [Display(Name = "Notas")]
         [DataType(DataType.MultilineText)]
         public string notas { get; set; }
+
+        public virtual ICollection<ArchivoMatriculaOC> ArchivoMatriculaOCs { get; set; }
     }
 }

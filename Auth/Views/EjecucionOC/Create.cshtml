@@ -45,21 +45,14 @@
             </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.entrega_am)
-            <div class="editor-field">
-                @Html.EditorFor(model => model.entrega_am, new { htmlAttributes = new { @style = "text-transform:uppercase;width:350px" } })
-                @Html.ValidationMessageFor(model => model.entrega_am)
-            </div>
-        </div>
 
         <div class="editor-label">
-            <label>Adjuntos:</label>
+            @Html.LabelFor(model => model.entrega_am)
         </div>
         <div class="editor-field">
-            <input type="file" name="file" multiple="multiple" />
-        </div>
-        <p></p>
+            @Html.DropDownListFor(model => model.entrega_am, ViewBag.ListaResponsables as SelectList, "Seleccione Responsable Entrega", new { @style = "width:250px", required = "required" })
+            @Html.ValidationMessageFor(model => model.entrega_am)
+        </div>         
 
         <div class="editor-label">
             @Html.LabelFor(model => model.notas)
@@ -67,17 +60,20 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.notas)
             @Html.ValidationMessageFor(model => model.notas)
-        </div>
-
-        <p>
-            <div class="editor-field">
-                <input type="submit" value="Crear" class="btn btn-success" />
-            </div>
-        </p>
-
+        </div>        
     </fieldset>
 
-    <div>
+    <fieldset>
+        <div class="editor-label">
+            <label>Adjuntos:</label>
+        </div>
+        <div class="editor-field">
+            <input type="file" name="file" multiple="multiple" />
+        </div>
+    </fieldset>
+       
+    <div class="editor-field">
+        <input type="submit" value="Crear" class="btn btn-success" />
         <input type="submit" class="btn btn-default" value="Ir al Listado" />
     </div>
 }

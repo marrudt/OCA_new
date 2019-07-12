@@ -15,7 +15,7 @@
         <div class="editor-label">
             @Html.LabelFor(model => model.OC)
             <div class="editor-field">
-                @Html.EditorFor(model => model.OC, new { htmlAttributes = new { @readonly = "readonly",@style="width:100px" } })
+                @Html.EditorFor(model => model.OC, new { htmlAttributes = new { @readonly = "readonly", @style = "width:100px" } })
                 @Html.ValidationMessageFor(model => model.OC)
             </div>
         </div>
@@ -23,7 +23,7 @@
         <div class="editor-label">
             @Html.LabelFor(model => model.nit)
             <div class="editor-field">
-                @Html.EditorFor(model => model.nit, new { htmlAttributes = new { @readonly = "readonly",@style="width:450px" } })
+                @Html.EditorFor(model => model.nit, new { htmlAttributes = new { @readonly = "readonly", @style = "width:450px" } })
                 @Html.ValidationMessageFor(model => model.nit)
             </div>
         </div>
@@ -54,12 +54,23 @@
 
         <div class="editor-label">
             @Html.LabelFor(model => model.entrega_am)
-            <div class="editor-field">
-                @Html.EditorFor(model => model.entrega_am, new { htmlAttributes = new { @style = "text-transform:uppercase;width:350px" } })
-                @Html.ValidationMessageFor(model => model.entrega_am)
-            </div>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.entrega_am, ViewBag.ListaResponsables as SelectList, "Seleccione Responsable Entrega", new { @style = "width:250px", required = "required" })
+            @Html.ValidationMessageFor(model => model.entrega_am)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.notas)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.notas)
+            @Html.ValidationMessageFor(model => model.notas)
+        </div>
+        
+    </fieldset>
+
+    <fieldset>
         <div class="editor-label">
             <label>Adjuntos:</label>
         </div>
@@ -75,20 +86,9 @@
                 }
             </ul>
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.notas)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.notas)
-            @Html.ValidationMessageFor(model => model.notas)
-        </div>
-        <p></p>
-        <input type="submit" value="Guardar" class="btn btn-info" />
-        <p></p>
     </fieldset>
-
     <div>
+        <input type="submit" value="Guardar" class="btn btn-info" />
         <form method="post" action='@Url.Action("Index", "OrdenCompras")' />
         <input type="submit" class="btn btn-default" value="Ir al Listado" />
     </div>

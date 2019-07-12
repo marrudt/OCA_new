@@ -10,6 +10,7 @@ namespace Auth.Models
 
         [Required(ErrorMessage = "Obligatorio")]
         public string Numero { get; set; }
+        public string OC { get; set; }
 
         [Required(ErrorMessage = "Obligatorio")]
         [Display(Name = "Cliente")]
@@ -54,6 +55,8 @@ namespace Auth.Models
 
         public int Unidades { get; set; }
 
+        public string Modelo { get; set; }
+
         [Display(Name = "Mantenimiento Preventivo")]
         public string MttoPreventivo { get; set; }
 
@@ -78,5 +81,11 @@ namespace Auth.Models
 
         [DataType(DataType.MultilineText)]
         public string Notas { get; set; }
+
+        public bool Adjudicado { get; set; }
+
+        public bool Perdido { get; set; }
+
+        public bool Cancelado { get; set; }
     }
 }
